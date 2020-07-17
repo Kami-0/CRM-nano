@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="4" author="mariya">
+        <createTable tableName="CUSTOMER_BANK">
+            <column name="BANK_ID" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="KEY_NAME" type="varchar(255)"/>
+            <column name="NAME" type="varchar(255)"/>
+        </createTable>
+
+        <insert tableName="CUSTOMER_BANK">
+            <column name="BANK_ID">0</column>
+            <column name="NAME">Сбербанк</column>
+        </insert>
+
+        <insert tableName="CUSTOMER_BANK">
+            <column name="BANK_ID">1</column>
+            <column name="NAME">Tinkoff</column>
+        </insert>
+
+        <insert tableName="CUSTOMER_BANK">
+            <column name="BANK_ID">2</column>
+            <column name="NAME">Газпромбанк</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

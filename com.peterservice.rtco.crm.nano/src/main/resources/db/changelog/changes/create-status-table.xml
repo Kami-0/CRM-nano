@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="3" author="mariya">
+        <createTable tableName="CUSTOMER_STATUS">
+            <column name="STATUS_ID" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="KEY_NAME" type="varchar(255)"/>
+            <column name="NAME" type="varchar(255)"/>
+        </createTable>
+
+        <insert tableName="CUSTOMER_STATUS">
+            <column name="STATUS_ID">0</column>
+            <column name="KEY_NAME">CLOSED</column>
+            <column name="NAME">Несуществующий</column>
+        </insert>
+
+        <insert tableName="CUSTOMER_STATUS">
+            <column name="STATUS_ID">1</column>
+            <column name="KEY_NAME">POTENTIAL</column>
+            <column name="NAME">Потенциальный</column>
+        </insert>
+
+        <insert tableName="CUSTOMER_STATUS">
+            <column name="STATUS_ID">2</column>
+            <column name="KEY_NAME">ACTIVE</column>
+            <column name="NAME">Существующий</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
