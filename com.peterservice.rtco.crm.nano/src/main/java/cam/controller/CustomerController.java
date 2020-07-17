@@ -13,12 +13,6 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping("/Helloop")
-    @ResponseBody
-    String hello() {
-        return "Hello world!!";
-    }
-
     @GetMapping("/list")
     public List<CustomerDto> getAllCustomers() {
         return customerService.getAll();
