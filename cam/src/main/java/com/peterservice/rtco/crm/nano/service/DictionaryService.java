@@ -1,6 +1,6 @@
 package com.peterservice.rtco.crm.nano.service;
 
-import com.peterservice.rtco.crm.nano.dto.CustomerBankDto;
+import com.peterservice.rtco.crm.nano.dto.BankDto;
 import com.peterservice.rtco.crm.nano.dto.CustomerStatusDto;
 import com.peterservice.rtco.crm.nano.dto.CustomerTypeDto;
 
@@ -11,11 +11,11 @@ public interface DictionaryService {
 
     List<CustomerStatusDto> getAllStatuses();
 
-    List<CustomerBankDto> getAllBanks();
+    List<BankDto> getAllBanks();
 
     CustomerTypeDto getTypeById(Long id);
 
     CustomerStatusDto getStatusById(Long id);
 
-    CustomerBankDto getBankById(Long id);
+    BankDto getBankById(Long id);
 }

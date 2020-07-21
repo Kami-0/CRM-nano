@@ -9,23 +9,23 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("/list")
+    @GetMapping
     public List<CustomerDto> getAllCustomers() {
         return customerService.getAll();
     }
 
-    @GetMapping
-    public CustomerDto getCustomerById(@RequestParam(value = "id", required = true) Long id) {
+    @GetMapping("/{id}")
+    public CustomerDto getCustomerById(@PathVariable(name = "id") Long id) {
         return customerService.getById(id);
     }
 
-    @GetMapping("/getByName")
-    public CustomerDto getCustomerByName(@RequestParam(value = "name", required = true) String name) {
+    @GetMapping("/name/{name}")
+    public CustomerDto getCustomerByName(@PathVariable(value = "name") String name) {
         return customerService.getByName(name);
     }
 

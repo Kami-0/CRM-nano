@@ -13,7 +13,7 @@ import java.util.Date;
 @Builder
 @Entity
 @Table(name = "BANK")
-public class CustomerBankEntity {
+public class BankEntity {
     @Id
     @Column(name = "BANK_ID")
     private Long bankId;

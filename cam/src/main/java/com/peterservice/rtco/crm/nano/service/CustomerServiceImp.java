@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,7 +49,10 @@ public class CustomerServiceImp implements CustomerService {
     @Transactional
     @Override
     public CustomerDto getByName(String name) {
-        return entityToDto(customerRepository.findByName(name));
+        CustomerEntity customerEntity = customerRepository.findByName(name);
+        if(customerEntity == null)
+            throw new EntityNotFoundException("Failed to find customer with name: " + name);
+        return entityToDto(customerEntity);
     }
 
     @Transactional

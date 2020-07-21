@@ -1,6 +1,7 @@
 package com.peterservice.rtco.crm.nano.handler;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -27,6 +28,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = DataIntegrityViolationException.class)
     public ResponseEntity<Object> dataIntegrityViolationHandler(HttpServletRequest request, DataIntegrityViolationException e) {
+        return makeResponseEntity(HttpStatus.BAD_REQUEST, e.getMessage());
+    }
+
+    @ExceptionHandler(value = IncorrectResultSizeDataAccessException.class)
+    public ResponseEntity<Object> incorrectResultSizeDataAccessHandler(HttpServletRequest request, IncorrectResultSizeDataAccessException e) {
         return makeResponseEntity(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 

@@ -9,7 +9,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerBankDto {
+public class BankDto {
     
     private Long bankId;
 

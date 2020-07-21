@@ -1,9 +1,9 @@
 package com.peterservice.rtco.crm.nano.service;
 
-import com.peterservice.rtco.crm.nano.domain.CustomerBankEntity;
+import com.peterservice.rtco.crm.nano.domain.BankEntity;
 import com.peterservice.rtco.crm.nano.domain.CustomerStatusEntity;
 import com.peterservice.rtco.crm.nano.domain.CustomerTypeEntity;
-import com.peterservice.rtco.crm.nano.dto.CustomerBankDto;
+import com.peterservice.rtco.crm.nano.dto.BankDto;
 import com.peterservice.rtco.crm.nano.dto.CustomerStatusDto;
 import com.peterservice.rtco.crm.nano.dto.CustomerTypeDto;
 import com.peterservice.rtco.crm.nano.repository.CustomerBankRepository;
@@ -45,7 +45,7 @@ public class DictionaryServiceImp implements DictionaryService {
     }
 
     @Override
-    public List<CustomerBankDto> getAllBanks() {
+    public List<BankDto> getAllBanks() {
         return customerBankRepository
                 .findAll()
                 .stream()
@@ -64,7 +64,7 @@ public class DictionaryServiceImp implements DictionaryService {
     }
 
     @Override
-    public CustomerBankDto getBankById(Long id) {
+    public BankDto getBankById(Long id) {
         return entityToDto(customerBankRepository.getOne(id));
     }
 
@@ -84,8 +84,8 @@ public class DictionaryServiceImp implements DictionaryService {
                 .build();
     }
 
-    private CustomerBankDto entityToDto(CustomerBankEntity customerBankEntity) {
-        return CustomerBankDto.builder()
+    private BankDto entityToDto(BankEntity customerBankEntity) {
+        return BankDto.builder()
                 .bankId(customerBankEntity.getBankId())
                 .name(customerBankEntity.getName())
                 .address(customerBankEntity.getAddress())

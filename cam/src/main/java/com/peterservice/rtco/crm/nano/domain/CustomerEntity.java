@@ -36,5 +36,5 @@ public class CustomerEntity {
 
     @ManyToOne
     @JoinColumn(name = "BANK_ID", nullable = false)
-    private CustomerBankEntity bank;
+    private BankEntity bank;
 }
