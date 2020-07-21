@@ -4,20 +4,28 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="1" author="mariya">
-        <createTable tableName="CUSTOMERS">
+        <createTable tableName="CUSTOMER">
             <column autoIncrement="true" name="ID" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
             <column name="TYPE_TYPE_ID" type="bigint">
                 <constraints nullable="false"
                              foreignKeyName="fk_type"
-                             references="CUSTOMER_TYPES(TYPE_ID)"/>
+                             references="CUSTOMER_TYPE(TYPE_ID)"/>
             </column>
-            <column name="STATUS_STATUS_ID" type="bigint"/>
-            <column name="NAME_CUSTOMER" type="varchar(255)"/>
+            <column name="STATUS_STATUS_ID" type="bigint">
+                <constraints nullable="false"
+                             foreignKeyName="fk_status"
+                             references="CUSTOMER_STATUS(STATUS_ID)"/>
+            </column>
+            <column name="NAME" type="varchar(255)"/>
             <column name="INN" type="bigint"/>
             <column name="KPP" type="bigint"/>
-            <column name="BANK_ID" type="bigint"/>
+            <column name="BANK_ID" type="bigint">
+                <constraints nullable="false"
+                             foreignKeyName="fk_bank"
+                             references="BANK(BANK_ID)"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

@@ -47,8 +47,8 @@ public class CustomerServiceImp implements CustomerService {
 
     @Transactional
     @Override
-    public CustomerDto getByName(String customerName) {
-        return entityToDto(customerRepository.findByNameCustomer(customerName));
+    public CustomerDto getByName(String name) {
+        return entityToDto(customerRepository.findByName(name));
     }
 
     @Transactional
@@ -63,7 +63,7 @@ public class CustomerServiceImp implements CustomerService {
     public CustomerDto update(Long id, CustomerDto customerDto) {
         CustomerEntity customerEntity = customerRepository.getOne(id);
         customerEntity.setId(id);
-        customerEntity.setNameCustomer(customerDto.getNameCustomer());
+        customerEntity.setName(customerDto.getName());
         customerEntity.setInn(customerDto.getInn());
         customerEntity.setKpp(customerDto.getKpp());
         customerEntity.setBank(customerBankRepository.getOne(customerDto.getBankId()));
@@ -82,7 +82,7 @@ public class CustomerServiceImp implements CustomerService {
     private CustomerDto entityToDto(CustomerEntity customerEntity) {
         return CustomerDto.builder()
                 .id(customerEntity.getId())
-                .nameCustomer(customerEntity.getNameCustomer())
+                .name(customerEntity.getName())
                 .inn(customerEntity.getInn())
                 .kpp(customerEntity.getKpp())
                 .typeTypeId(customerEntity.getType().getTypeId())
@@ -93,7 +93,7 @@ public class CustomerServiceImp implements CustomerService {
 
     private CustomerEntity dtoToEntity(CustomerDto customerDto) {
         return CustomerEntity.builder()
-                .nameCustomer(customerDto.getNameCustomer())
+                .name(customerDto.getName())
                 .inn(customerDto.getInn())
                 .kpp(customerDto.getKpp())
                 .bank(customerBankRepository.getOne(customerDto.getBankId()))

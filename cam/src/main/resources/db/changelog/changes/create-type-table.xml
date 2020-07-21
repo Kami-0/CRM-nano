@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="2" author="mariya">
-        <createTable tableName="CUSTOMER_TYPES">
+        <createTable tableName="CUSTOMER_TYPE">
             <column name="TYPE_ID" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
@@ -12,19 +12,19 @@
             <column name="NAME" type="varchar(255)"/>
         </createTable>
 
-        <insert tableName="CUSTOMER_TYPES">
+        <insert tableName="CUSTOMER_TYPE">
             <column name="TYPE_ID">0</column>
             <column name="KEY_NAME">LEGAL_ENTITY</column>
             <column name="NAME">Юридическое лицо</column>
         </insert>
 
-        <insert tableName="CUSTOMER_TYPES">
+        <insert tableName="CUSTOMER_TYPE">
             <column name="TYPE_ID">1</column>
             <column name="KEY_NAME">PHYSICAL_ENTITY</column>
             <column name="NAME">Физическое лицо</column>
         </insert>
 
-        <insert tableName="CUSTOMER_TYPES">
+        <insert tableName="CUSTOMER_TYPE">
             <column name="TYPE_ID">2</column>
             <column name="KEY_NAME">ENTREPRENEUR</column>
             <column name="NAME">Индивидуальный предприниматель</column>

@@ -4,27 +4,62 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="4" author="mariya">
-        <createTable tableName="CUSTOMER_BANK">
-            <column name="BANK_ID" type="bigint">
+        <createTable tableName="BANK">
+
+            <column name="BANK_ID" type="NUMBER(18, 0)">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="KEY_NAME" type="varchar(255)"/>
-            <column name="NAME" type="varchar(255)"/>
+            <column name="NAME" type="VARCHAR2(256 BYTE)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADDRESS" type="VARCHAR2(1000 BYTE)"/>
+            <column name="CORR_ACCOUNT" type="VARCHAR2(20 BYTE)"/>
+            <column name="BIK" type="BIGINT"/>
+            <column name="INN" type="BIGINT"/>
+            <column name="KPP" type="BIGINT" />
+            <column name="START_DATE" type="TIMESTAMP(9)"/>
+            <column name="END_DATE" type="TIMESTAMP(9)"/>
+            <column name="LAST_CHG_DATE" defaultValueComputed="SYSTIMESTAMP"
+                    type="TIMESTAMP(9)"/>
         </createTable>
 
-        <insert tableName="CUSTOMER_BANK">
-            <column name="BANK_ID">0</column>
-            <column name="NAME">Сбербанк</column>
+        <insert tableName="BANK">
+            <column name="BANK_ID" valueNumeric="1"/>
+            <column name="NAME" value="СИБИРСКИЙ БАНК ПАО СБЕРБАНК"/>
+            <column name="ADDRESS" value="УЛ СЕРЕБРЕННИКОВСКАЯ, 20"/>
+            <column name="CORR_ACCOUNT" value="30101810500000000641"/>
+            <column name="BIK" value="045004641"/>
+            <column name="INN" value="7707083893"/>
+            <column name="KPP"/>
+            <column name="START_DATE" valueDate="2020-9-05T08:50:07.945937"/>
+            <column name="END_DATE" valueDate="2020-10-05T08:50:07.945937"/>
+            <column name="LAST_CHG_DATE" valueDate="2019-10-05T08:50:07.945937"/>
         </insert>
 
-        <insert tableName="CUSTOMER_BANK">
-            <column name="BANK_ID">1</column>
-            <column name="NAME">Tinkoff</column>
+        <insert tableName="BANK">
+            <column name="BANK_ID" valueNumeric="2"/>
+            <column name="NAME" value="АО &quot;Тинькоф Банк&quot;"/>
+            <column name="ADDRESS" value="Москва, 123060, 1-й Волоколамский проезд, д.10, стр.1"/>
+            <column name="CORR_ACCOUNT" value="30101810145250000974"/>
+            <column name="BIK" value="771014067"/>
+            <column name="INN"/>
+            <column name="KPP"/>
+            <column name="START_DATE" valueDate="2020-9-05T08:50:24.79508"/>
+            <column name="END_DATE" valueDate="2020-10-05T08:50:24.79508"/>
+            <column name="LAST_CHG_DATE" valueDate="2019-10-05T08:50:24.79508"/>
         </insert>
 
-        <insert tableName="CUSTOMER_BANK">
-            <column name="BANK_ID">2</column>
-            <column name="NAME">Газпромбанк</column>
+        <insert tableName="BANK">
+            <column name="BANK_ID" valueNumeric="3"/>
+            <column name="NAME" value="ФИЛИАЛ № 5440 ВТБ 24 (ПАО) Г.НОВОСИБИРСК"/>
+            <column name="ADDRESS"/>
+            <column name="CORR_ACCOUNT" value="30101810450040000751"/>
+            <column name="BIK" value="045004751"/>
+            <column name="INN"/>
+            <column name="KPP"/>
+            <column name="START_DATE" valueDate="2019-10-05T08:50:24.697632"/>
+            <column name="END_DATE" valueDate="2019-10-05T08:50:24.697632"/>
+            <column name="LAST_CHG_DATE" valueDate="2019-10-05T08:50:24.697632"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

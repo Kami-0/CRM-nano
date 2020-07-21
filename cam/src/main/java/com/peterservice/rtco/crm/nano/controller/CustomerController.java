@@ -25,8 +25,8 @@ public class CustomerController {
     }
 
     @GetMapping("/getByName")
-    public CustomerDto getCustomerByName(@RequestParam(value = "name", required = true) String customerName) {
-        return customerService.getByName(customerName);
+    public CustomerDto getCustomerByName(@RequestParam(value = "name", required = true) String name) {
+        return customerService.getByName(name);
     }
 
     @PostMapping

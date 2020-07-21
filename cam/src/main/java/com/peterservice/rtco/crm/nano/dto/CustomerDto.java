@@ -22,7 +22,7 @@ public class CustomerDto {
     private Long statusStatusId;
 
     @NotEmpty(message = "Please enter the name")
-    private String nameCustomer;
+    private String name;
 
     @NotNull(message = "Please enter the inn")
     private Long inn;
@@ -32,4 +32,5 @@ public class CustomerDto {
 
     @NotNull(message = "Please enter the bankId")
     private Long bankId;
+
 }

@@ -88,6 +88,14 @@ public class DictionaryServiceImp implements DictionaryService {
         return CustomerBankDto.builder()
                 .bankId(customerBankEntity.getBankId())
                 .name(customerBankEntity.getName())
+                .address(customerBankEntity.getAddress())
+                .corrAccount(customerBankEntity.getCorrAccount())
+                .bik(customerBankEntity.getBik())
+                .inn(customerBankEntity.getInn())
+                .kpp(customerBankEntity.getKpp())
+                .startDate(customerBankEntity.getStartDate())
+                .endDate(customerBankEntity.getEndDate())
+                .lastChgDate(customerBankEntity.getLastChgDate())
                 .build();
     }
 }

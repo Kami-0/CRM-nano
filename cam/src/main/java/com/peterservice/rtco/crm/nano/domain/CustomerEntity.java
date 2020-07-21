@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "CUSTOMERS")
+@Table(name = "CUSTOMER")
 public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +25,8 @@ public class CustomerEntity {
     @JoinColumn(name = "STATUS_STATUS_ID", nullable = false)
     private CustomerStatusEntity status;
 
-    @Column(name = "NAME_CUSTOMER")
-    private String nameCustomer;
+    @Column(name = "NAME")
+    private String name;
 
     @Column(name = "INN")
     private Long inn;
