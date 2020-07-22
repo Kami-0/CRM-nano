@@ -4,13 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>CRMnano</artifactId>
-        <groupId>com.crmnano</groupId>
+        <groupId>com.peterservice.rtco.crm.nano</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cam</artifactId>
+    <artifactId>cam-core</artifactId>
+    <version>${parent.version}</version>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.peterservice.rtco.crm.nano</groupId>
+            <artifactId>cam-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
