@@ -7,6 +7,9 @@ import com.peterservice.rtco.crm.nano.repository.CustomerRepository;
 import com.peterservice.rtco.crm.nano.repository.CustomerStatusRepository;
 import com.peterservice.rtco.crm.nano.repository.CustomerTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +20,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImp implements CustomerService {
-    //   protected static Logger logger = Logger.getLogger("service");
+
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -32,9 +35,10 @@ public class CustomerServiceImp implements CustomerService {
 
     @Transactional
     @Override
-    public List<CustomerDto> getAll() {
-        return customerRepository
-                .findAll()
+    public List<CustomerDto> getAll(Integer limit, Integer offset) {
+        Pageable paging = PageRequest.of(offset / limit, limit);
+        Page<CustomerEntity> pageResult = customerRepository.findAll(paging);
+        return pageResult
                 .stream()
                 .map(this::entityToDto)
                 .collect(Collectors.toList());

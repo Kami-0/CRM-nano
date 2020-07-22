@@ -15,8 +15,10 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public List<CustomerDto> getAllCustomers() {
-        return customerService.getAll();
+    public List<CustomerDto> getAllCustomers(
+            @RequestParam(defaultValue = "5") Integer limit,
+            @RequestParam(defaultValue = "0") Integer offset) {
+        return customerService.getAll(limit, offset);
     }
 
     @GetMapping("/{id}")
