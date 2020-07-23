@@ -3,19 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>CRMnano</artifactId>
+        <artifactId>cam-be</artifactId>
         <groupId>com.peterservice.rtco.crm.nano</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cam-be</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>cam-feign-starter</artifactId>
+    <version>${parent.version}</version>
+    <packaging>jar</packaging>
 
-    <modules>
-        <module>cam-api</module>
-        <module>cam-core</module>
-        <module>cam-feign-starter</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.peterservice.rtco.crm.nano</groupId>
+            <artifactId>cam-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
