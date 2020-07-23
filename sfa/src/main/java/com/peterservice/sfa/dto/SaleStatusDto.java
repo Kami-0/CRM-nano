@@ -13,8 +13,15 @@ import lombok.Setter;
 @Setter
 @Getter
 public class SaleStatusDto {
-    private long sstat_id;
-    private String key_name;
+    private long sstatId;
+    private String keyName;
     private String name;
-    private boolean is_active_yn;
+    private boolean isActiveYn;
+
+    @Override
+    public String toString() {
+        return String.format(
+                "SaleStatusDto[sstatId=%d, keyName='%s', name='%s', isActiveYn='%b']",
+                sstatId, keyName, name, isActiveYn);
+    }
 }
