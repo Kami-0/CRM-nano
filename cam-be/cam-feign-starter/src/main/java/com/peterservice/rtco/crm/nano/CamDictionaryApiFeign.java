@@ -8,17 +8,22 @@ import feign.RequestLine;
 
 import java.util.List;
 
-public interface DictionaryApi {
-
+public interface CamDictionaryApiFeign {
+    @RequestLine("GET /banks")
     List<BankDto> getAllBanks();
-    
-    BankDto getBankById(Long id);
 
+    @RequestLine("GET /banks/{id}")
+    BankDto getBankById(@Param("id") Long id);
+
+    @RequestLine("GET /types")
     List<CustomerTypeDto> getAllCustomersType();
 
-    CustomerTypeDto getTypeById(Long id);
+    @RequestLine("GET /types/{id}")
+    CustomerTypeDto getTypeById(@Param("id") Long id);
 
+    @RequestLine("GET /statuses")
     List<CustomerStatusDto> getAllCustomersStatus();
 
-    CustomerStatusDto getStatusById(Long id);
+    @RequestLine("GET /statuses/{id}")
+    CustomerStatusDto getStatusById(@Param("id") Long id);
 }
