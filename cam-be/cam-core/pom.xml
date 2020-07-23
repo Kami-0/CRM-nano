@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cam-core</artifactId>
-    <version>${parent.version}</version>
     <packaging>jar</packaging>
 
     <dependencies>

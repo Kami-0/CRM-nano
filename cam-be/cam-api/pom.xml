@@ -10,6 +10,5 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cam-api</artifactId>
-    <version>${parent.version}</version>
     <packaging>jar</packaging>
 </project>
