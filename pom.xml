@@ -9,8 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>cam-api</module>
-        <module>cam-core</module>
+        <module>cam-be</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
