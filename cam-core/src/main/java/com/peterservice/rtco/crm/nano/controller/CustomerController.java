@@ -42,7 +42,7 @@ public class CustomerController {
     }
 
     @DeleteMapping
-    private void deleteCustomer(@RequestParam(value = "id", required = true) Long id) {
+    public void deleteCustomer(@RequestParam(value = "id", required = true) Long id) {
         customerService.delete(id);
     }
 }
