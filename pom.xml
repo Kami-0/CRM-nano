@@ -4,14 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.peterservice.rtco.com</groupId>
+    <groupId>com.peterservice.rtco.crm.nano</groupId>
     <artifactId>CRMnano</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
+    <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>cam</module>
         <module>sfa-be</module>
+        <module>cam-be</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -57,6 +56,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.4</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-jackson</artifactId>
+            <version>11.0</version>
         </dependency>
     </dependencies>
 </project>
