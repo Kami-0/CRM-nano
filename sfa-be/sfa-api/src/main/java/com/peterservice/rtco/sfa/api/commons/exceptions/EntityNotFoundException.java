@@ -10,6 +10,6 @@ public class EntityNotFoundException extends RuntimeException {
 
     public EntityNotFoundException(EntityType entityType, long id) {
         this.entityType = entityType;
-        this.message = "Статус с id: " + id + " не существует";
+        this.message = "Сущность с id: " + id + " не существует";
     }
 }
