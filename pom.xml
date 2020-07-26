@@ -4,13 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.crmnano</groupId>
+    <groupId>com.peterservice.rtco.com</groupId>
     <artifactId>CRMnano</artifactId>
-    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <modules>
-        <module>com.peterservice.rtco.crm.nano</module>
-        <module>sfa</module>
+        <module>cam</module>
+        <module>sfa-be</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
