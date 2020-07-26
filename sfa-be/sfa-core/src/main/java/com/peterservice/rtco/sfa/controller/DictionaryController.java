@@ -1,5 +1,6 @@
 package com.peterservice.rtco.sfa.controller;
 
+import com.peterservice.rtco.sfa.api.DictionaryApi;
 import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
 import com.peterservice.rtco.sfa.service.DictionaryServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,18 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/dictionary")
-public class DictionaryController {
+public class DictionaryController implements DictionaryApi {
 
     @Autowired
     private DictionaryServiceImp dictionaryService;
 
+    @Override
     @GetMapping(value = "/sale/statuses")
     public List<SaleStatusDto> getAllSaleStatuses() {
         return dictionaryService.getAllSaleStatuses();
     }
 
+    @Override
     @GetMapping(value = "/sale/statuses/{id}")
     public SaleStatusDto getSaleStatusById(@PathVariable long id) {
         return dictionaryService.getSaleStatusById(id);
