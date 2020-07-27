@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 1
+      author: daniil_makarov
+      changes:
+        - createTable:
+            tableName: sale_status
+            columns:
+              - column:
+                  name: sstat_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: key_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active_yn
+                  type: boolean
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: daniil_makarov
+      comment: "_"
+      changes:
+        - insert:
+            tableName: sale_status
+            columns:
+              - column:
+                  name: key_name
+                  value: "admin"
+              - column:
+                  name: name
+                  value: "admin"
+              - column:
+                  name: is_active_yn
+                  value: true
+        - insert:
+            tableName: sale_status
+            columns:
+              - column:
+                  name: key_name
+                  value: "admin2"
+              - column:
+                  name: name
+                  value: "admin2"
+              - column:
+                  name: is_active_yn
+                  value: true
