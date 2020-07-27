@@ -9,21 +9,21 @@ import feign.RequestLine;
 import java.util.List;
 
 public interface CamDictionaryApiFeign {
-    @RequestLine("GET /banks")
+    @RequestLine("GET /dictionary/banks")
     List<BankDto> getAllBanks();
 
-    @RequestLine("GET /banks/{id}")
+    @RequestLine("GET /dictionary/banks/{id}")
     BankDto getBankById(@Param("id") Long id);
 
-    @RequestLine("GET /types")
+    @RequestLine("GET /dictionary/types")
     List<CustomerTypeDto> getAllCustomersType();
 
-    @RequestLine("GET /types/{id}")
+    @RequestLine("GET /dictionary/types/{id}")
     CustomerTypeDto getTypeById(@Param("id") Long id);
 
-    @RequestLine("GET /statuses")
+    @RequestLine("GET /dictionary/statuses")
     List<CustomerStatusDto> getAllCustomersStatus();
 
-    @RequestLine("GET /statuses/{id}")
+    @RequestLine("GET /dictionary/statuses/{id}")
     CustomerStatusDto getStatusById(@Param("id") Long id);
 }
