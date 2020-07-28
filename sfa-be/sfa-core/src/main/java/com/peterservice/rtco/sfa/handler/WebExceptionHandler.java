@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.validation.ConstraintDeclarationException;
+import javax.validation.ConstraintViolationException;
 
 /**
  * @author Daniil.Makarov
  */
 @ControllerAdvice
 public class WebExceptionHandler extends ResponseEntityExceptionHandler {
-    private static final String MESSAGE_TO_NOT_VALID_ID = "Минимальный id сущности = 1";
 
     @ExceptionHandler(EntityNotFoundException.class)
     protected ResponseEntity<ExceptionResponseEntity> handleNotFoundException(EntityNotFoundException ex) {
@@ -28,10 +27,10 @@ public class WebExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(ConstraintDeclarationException.class)
-    protected ResponseEntity<ExceptionResponse> handlePathVariableException() {
+    @ExceptionHandler(ConstraintViolationException.class)
+    protected ResponseEntity<ExceptionResponse> handlePathVariableException(ConstraintViolationException ex) {
         return new ResponseEntity<>(
-                new ExceptionResponse(HttpStatus.BAD_REQUEST.value(), MESSAGE_TO_NOT_VALID_ID),
+                new ExceptionResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 

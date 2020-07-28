@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Daniil.Makarov
  */
@@ -11,9 +14,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class SaleStatusDto {
+    @NotNull
     private long sstatId;
+    @NotEmpty
     private String keyName;
+    @NotEmpty
     private String name;
+    @NotNull
     private boolean isActiveYn;
 
     @Override

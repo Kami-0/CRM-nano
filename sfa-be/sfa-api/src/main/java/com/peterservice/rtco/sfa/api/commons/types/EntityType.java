@@ -1,7 +1,8 @@
 package com.peterservice.rtco.sfa.api.commons.types;
 
 public enum EntityType {
-    SALE_STATUS("Статус продажи");
+    SALE_STATUS("Статус продажи"),
+    SALE("Статус продажи");
 
     private final String name;
 

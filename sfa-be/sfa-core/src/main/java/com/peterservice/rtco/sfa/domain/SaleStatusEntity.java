@@ -27,7 +27,7 @@ public class SaleStatusEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "is_active_yn", nullable = false)
+    @Column(name = "is_active_yn")
     private boolean isActiveYn;
 
     @Override
