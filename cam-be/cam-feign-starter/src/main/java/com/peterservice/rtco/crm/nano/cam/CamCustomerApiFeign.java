@@ -8,6 +8,7 @@ import feign.RequestLine;
 import java.util.List;
 
 public interface CamCustomerApiFeign extends CustomerApi {
+
     @RequestLine("GET /customers/{id}")
     CustomerDto getCustomerById(@Param("id") Long id);
 

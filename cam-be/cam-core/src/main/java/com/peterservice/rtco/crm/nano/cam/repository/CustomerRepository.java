@@ -14,5 +14,4 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
     @Override
     Page<CustomerEntity> findAll(Pageable pageable);
 
-
 }
