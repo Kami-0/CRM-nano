@@ -6,9 +6,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.util.List;
 
+import static com.peterservice.rtco.sfa.api.constans.ApiConstants.ID_MIN;
+import static com.peterservice.rtco.sfa.api.constans.ApiConstants.MESSAGE_TO_NOT_VALID_ID;
+
 public interface SalesApi {
-    String MESSAGE_TO_NOT_VALID_ID = "Минимальный id сущности = 1";
-    int ID_MIN = 1;
 
     List<SaleDto> getAllSale(Integer limit, Integer offset);
 

@@ -28,6 +28,12 @@
         </insert>
 
         <insert tableName="sale_status">
+            <column name="key_name">CANCEL</column>
+            <column name="name">cancel</column>
+            <column name="is_active_yn">false</column>
+        </insert>
+
+        <insert tableName="sale_status">
             <column name="key_name">CLOSED</column>
             <column name="name">closed</column>
             <column name="is_active_yn">false</column>

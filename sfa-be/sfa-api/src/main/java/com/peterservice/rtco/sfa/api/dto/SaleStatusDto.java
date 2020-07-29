@@ -3,6 +3,7 @@ package com.peterservice.rtco.sfa.api.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@ToString
 public class SaleStatusDto {
     @NotNull
     private long sstatId;
@@ -22,11 +24,4 @@ public class SaleStatusDto {
     private String name;
     @NotNull
     private boolean isActiveYn;
-
-    @Override
-    public String toString() {
-        return String.format(
-                "SaleStatusDto[sstatId=%d, keyName='%s', name='%s', isActiveYn='%b']",
-                sstatId, keyName, name, isActiveYn);
-    }
 }
