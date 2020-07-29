@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.validation.ConstraintViolationException;
@@ -32,6 +33,13 @@ public class WebExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(
                 new ExceptionResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage()),
                 HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    protected ResponseEntity<ExceptionResponse> handleIncorrectPath(MethodArgumentTypeMismatchException ex) {
+        return new ResponseEntity<>(
+                new ExceptionResponse(HttpStatus.NOT_FOUND.value(), "Некорректный " + ex.getParameter().getParameterName()),
+                HttpStatus.NOT_FOUND);
     }
 
     @Data
