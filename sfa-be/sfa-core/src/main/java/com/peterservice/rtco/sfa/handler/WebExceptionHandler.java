@@ -4,11 +4,14 @@ import com.peterservice.rtco.sfa.api.commons.exceptions.EntityNotFoundException;
 import com.peterservice.rtco.sfa.api.commons.types.EntityType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.validation.ConstraintViolationException;
@@ -18,6 +21,13 @@ import javax.validation.ConstraintViolationException;
  */
 @ControllerAdvice
 public class WebExceptionHandler extends ResponseEntityExceptionHandler {
+
+    @Override
+    protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return new ResponseEntity<>(
+                new ExceptionResponse(HttpStatus.NOT_FOUND.value(), "Некорректный запрос"),
+                HttpStatus.NOT_FOUND);
+    }
 
     @ExceptionHandler(EntityNotFoundException.class)
     protected ResponseEntity<ExceptionResponseEntity> handleNotFoundException(EntityNotFoundException ex) {
