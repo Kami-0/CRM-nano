@@ -11,7 +11,7 @@ class CustomerServiceImpComposite(
         private val camCustomerApiFeign: CamCustomerApiFeign)
     : CustomerServiceComposite
 {
-    fun getById(id: Long): CustomerDtoComposite {
+    override fun getById(id: Long): CustomerDtoComposite {
         val customer = camCustomerApiFeign.getCustomerById(id)
         return CustomerDtoComposite(
                 id = customer.id,
