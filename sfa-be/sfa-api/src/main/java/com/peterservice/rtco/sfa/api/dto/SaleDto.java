@@ -21,7 +21,7 @@ public class SaleDto {
 
     private long saleId;
 
-    //    @NotEmpty(message = "Введите дату начала продажи")
+    @NotNull
     private Instant saleStartDate;
 
     private Instant saleEndDate;

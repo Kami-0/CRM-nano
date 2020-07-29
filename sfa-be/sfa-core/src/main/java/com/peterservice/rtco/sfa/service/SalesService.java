@@ -6,6 +6,8 @@ import com.peterservice.rtco.sfa.api.dto.SaleDto;
 import com.peterservice.rtco.sfa.domain.SaleEntity;
 import com.peterservice.rtco.sfa.repository.SaleRepository;
 import com.peterservice.rtco.sfa.repository.SaleStatusRepository;
+import com.peterservice.rtco.sfa.utils.DtoToEntityConverter;
+import com.peterservice.rtco.sfa.utils.EntityToDtoConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,36 +27,13 @@ public class SalesService {
     public SaleDto getSaleById(long id) {
         SaleEntity saleEntity = saleRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(EntityType.SALE, id));
-        return convertToDto(saleEntity);
+        return DtoToEntityConverter.convert(saleEntity);
     }
 
     @Transactional
     public SaleDto createSale(SaleDto saleDto) {
-        SaleEntity result = saleRepository.save(convertToEntity(saleDto));
-        return convertToDto(result);
-    }
-
-    private SaleEntity convertToEntity(SaleDto saleDto) {
-        return new SaleEntity(
-                saleDto.getSaleId(),
-                saleDto.getSaleStartDate(),
-                saleDto.getSaleEndDate(),
-                saleDto.getCustCustId(),
-                saleStatusRepository.getOne(saleDto.getSstatSstatId()),
-                saleDto.getCancelReason(),
-                saleDto.getCntrCntrId()
-        );
-    }
-
-    private SaleDto convertToDto(SaleEntity saleEntity) {
-        return new SaleDto(
-                saleEntity.getSaleId(),
-                saleEntity.getSaleStartDate(),
-                saleEntity.getSaleEndDate(),
-                saleEntity.getCustCustId(),
-                saleEntity.getSstatSstatId().getSstatId(),
-                saleEntity.getCancelReason(),
-                saleEntity.getCntrCntrId()
-        );
+        SaleEntity result = saleRepository.save(EntityToDtoConverter
+                .convert(saleDto, saleStatusRepository.getOne(saleDto.getSstatSstatId())));
+        return DtoToEntityConverter.convert(result);
     }
 }
