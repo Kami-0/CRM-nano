@@ -17,9 +17,8 @@ import static com.peterservice.rtco.sfa.api.constan.DtoConstants.*;
 @ToString
 @Builder
 public class SaleDto {
-
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
-    private long saleId;
+    private Long saleId;
 
     @NotNull(message = MESSAGE_TO_NULL_SALE_START_DATE)
     private Instant saleStartDate;
@@ -39,5 +38,4 @@ public class SaleDto {
     @NotNull(message = MESSAGE_TO_NULL_CNTR_CNTR_ID)
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
     private Long cntrCntrId;
-
 }

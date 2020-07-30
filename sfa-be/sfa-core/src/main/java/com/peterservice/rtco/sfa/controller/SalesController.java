@@ -3,7 +3,6 @@ package com.peterservice.rtco.sfa.controller;
 import com.peterservice.rtco.sfa.api.SalesApi;
 import com.peterservice.rtco.sfa.api.dto.SaleDto;
 import com.peterservice.rtco.sfa.api.dto.SalesCancellationDto;
-import com.peterservice.rtco.sfa.api.dto.SalesClosureDto;
 import com.peterservice.rtco.sfa.api.dto.SalesCreationDto;
 import com.peterservice.rtco.sfa.service.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,20 +33,20 @@ public class SalesController implements SalesApi {
     }
 
     @Override
-    @PostMapping(value = "/cancel/{id}")
+    @PostMapping(value = "/{id}/cancel")
     public SaleDto cancelSale(@RequestBody SalesCancellationDto salesCancellationDto, @PathVariable long id) {
-        return null;
+        return salesService.cancelSale(salesCancellationDto, id);
     }
 
     @Override
-    @PostMapping(value = "/close/{id}")
-    public SaleDto closeSale(@RequestBody SalesClosureDto salesClosureDto, @PathVariable long id) {
-        return null;
+    @PutMapping(value = "/{id}/close")
+    public SaleDto closeSale(@PathVariable long id) {
+        return salesService.closeSale(id);
     }
 
     @Override
-    @PostMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/{id}/delete")
     public void deleteSale(@PathVariable long id) {
-
+        salesService.deleteSale(id);
     }
 }

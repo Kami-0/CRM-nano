@@ -2,7 +2,6 @@ package com.peterservice.rtco.sfa.api;
 
 import com.peterservice.rtco.sfa.api.dto.SaleDto;
 import com.peterservice.rtco.sfa.api.dto.SalesCancellationDto;
-import com.peterservice.rtco.sfa.api.dto.SalesClosureDto;
 import com.peterservice.rtco.sfa.api.dto.SalesCreationDto;
 
 import javax.validation.Valid;
@@ -20,8 +19,7 @@ public interface SalesApi {
     SaleDto cancelSale(@Valid SalesCancellationDto salesCancellationDto,
                        @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) long id);
 
-    SaleDto closeSale(@Valid SalesClosureDto salesClosureDto,
-                      @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) long id);
+    SaleDto closeSale(@Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) long id);
 
     void deleteSale(@Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) long id);
 
