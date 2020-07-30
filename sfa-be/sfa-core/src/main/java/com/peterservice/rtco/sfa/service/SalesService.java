@@ -1,8 +1,9 @@
 package com.peterservice.rtco.sfa.service;
 
-import com.peterservice.rtco.sfa.api.commons.exceptions.EntityNotFoundException;
-import com.peterservice.rtco.sfa.api.commons.types.EntityType;
+import com.peterservice.rtco.sfa.api.common.exceptions.EntityNotFoundException;
+import com.peterservice.rtco.sfa.api.common.types.EntityType;
 import com.peterservice.rtco.sfa.api.dto.SaleDto;
+import com.peterservice.rtco.sfa.api.dto.SalesCreationDto;
 import com.peterservice.rtco.sfa.domain.SaleEntity;
 import com.peterservice.rtco.sfa.repository.SaleRepository;
 import com.peterservice.rtco.sfa.repository.SaleStatusRepository;
@@ -11,6 +12,8 @@ import com.peterservice.rtco.sfa.utils.EntityToDtoConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Instant;
 
 /**
  * @author Daniil.Makarov
@@ -31,9 +34,19 @@ public class SalesService {
     }
 
     @Transactional
-    public SaleDto createSale(SaleDto saleDto) {
+    public SaleDto createSale(SalesCreationDto salesCreationDto) {
+        SaleDto saleDto = convertSalesCreationDtoToSaleDto(salesCreationDto);
         SaleEntity result = saleRepository.save(EntityToDtoConverter
                 .convert(saleDto, saleStatusRepository.getOne(saleDto.getSstatSstatId())));
         return DtoToEntityConverter.convert(result);
+    }
+
+    private SaleDto convertSalesCreationDtoToSaleDto(SalesCreationDto salesCreationDto) {
+        return SaleDto.builder()
+                .saleStartDate(Instant.now())
+                .custCustId(salesCreationDto.getCustCustId())
+                .sstatSstatId(salesCreationDto.getSstatSstatId())
+                .cntrCntrId(salesCreationDto.getCntrCntrId())
+                .build();
     }
 }

@@ -2,12 +2,13 @@ package com.peterservice.rtco.sfa.controller;
 
 import com.peterservice.rtco.sfa.api.SalesApi;
 import com.peterservice.rtco.sfa.api.dto.SaleDto;
+import com.peterservice.rtco.sfa.api.dto.SalesCancellationDto;
+import com.peterservice.rtco.sfa.api.dto.SalesClosureDto;
+import com.peterservice.rtco.sfa.api.dto.SalesCreationDto;
 import com.peterservice.rtco.sfa.service.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author Daniil.Makarov
@@ -21,11 +22,6 @@ public class SalesController implements SalesApi {
     private SalesService salesService;
 
     @Override
-    public List<SaleDto> getAllSale(Integer limit, Integer offset) {
-        return null;
-    }
-
-    @Override
     @GetMapping(value = "/{id}")
     public SaleDto getSaleById(@PathVariable long id) {
         return salesService.getSaleById(id);
@@ -33,17 +29,25 @@ public class SalesController implements SalesApi {
 
     @Override
     @PostMapping(value = "/create")
-    public SaleDto createSale(@RequestBody SaleDto saleDto) {
-        return salesService.createSale(saleDto);
+    public SaleDto createSale(@RequestBody SalesCreationDto salesCreationDto) {
+        return salesService.createSale(salesCreationDto);
     }
 
     @Override
-    public SaleDto updateSale(SaleDto saleDto) {
+    @PostMapping(value = "/cancel/{id}")
+    public SaleDto cancelSale(@RequestBody SalesCancellationDto salesCancellationDto, @PathVariable long id) {
         return null;
     }
 
     @Override
-    public void deleteSale(long id) {
+    @PostMapping(value = "/close/{id}")
+    public SaleDto closeSale(@RequestBody SalesClosureDto salesClosureDto, @PathVariable long id) {
+        return null;
+    }
+
+    @Override
+    @PostMapping(value = "/delete/{id}")
+    public void deleteSale(@PathVariable long id) {
 
     }
 }

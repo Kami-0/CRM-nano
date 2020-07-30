@@ -5,8 +5,8 @@ import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
 import javax.validation.constraints.Min;
 import java.util.List;
 
-import static com.peterservice.rtco.sfa.api.constans.ApiConstants.ID_MIN;
-import static com.peterservice.rtco.sfa.api.constans.ApiConstants.MESSAGE_TO_NOT_VALID_ID;
+import static com.peterservice.rtco.sfa.api.constan.ApiConstants.ID_MIN;
+import static com.peterservice.rtco.sfa.api.constan.ApiConstants.MESSAGE_TO_NOT_VALID_ID;
 
 public interface DictionaryApi {
 

@@ -7,8 +7,8 @@ import lombok.ToString;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import static com.peterservice.rtco.sfa.api.constans.DtoConstants.*;
-import static com.peterservice.rtco.sfa.api.constans.StatusIdConstants.SALES_CLOSURE_STATUS_ID;
+import static com.peterservice.rtco.sfa.api.constan.DtoConstants.*;
+import static com.peterservice.rtco.sfa.api.constan.StatusIdConstants.SALES_CLOSURE_STATUS_ID;
 
 /**
  * @author Daniil.Makarov

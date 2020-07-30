@@ -1,7 +1,7 @@
 package com.peterservice.rtco.sfa.service;
 
-import com.peterservice.rtco.sfa.api.commons.exceptions.EntityNotFoundException;
-import com.peterservice.rtco.sfa.api.commons.types.EntityType;
+import com.peterservice.rtco.sfa.api.common.exceptions.EntityNotFoundException;
+import com.peterservice.rtco.sfa.api.common.types.EntityType;
 import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
 import com.peterservice.rtco.sfa.domain.SaleStatusEntity;
 import com.peterservice.rtco.sfa.repository.SaleStatusRepository;

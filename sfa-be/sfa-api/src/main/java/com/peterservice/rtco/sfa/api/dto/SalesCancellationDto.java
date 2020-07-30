@@ -8,8 +8,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import static com.peterservice.rtco.sfa.api.constans.DtoConstants.*;
-import static com.peterservice.rtco.sfa.api.constans.StatusIdConstants.SALES_CANCEL_STATUS_ID;
+import static com.peterservice.rtco.sfa.api.constan.DtoConstants.*;
+import static com.peterservice.rtco.sfa.api.constan.StatusIdConstants.SALES_CANCEL_STATUS_ID;
 
 /**
  * @author Daniil.Makarov
@@ -24,7 +24,7 @@ public class SalesCancellationDto {
 
     @NotNull(message = MESSAGE_TO_NULL_SSTAT_SSTAT_ID)
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
-    private long sstatSstatId = SALES_CANCEL_STATUS_ID;
+    private Long sstatSstatId = SALES_CANCEL_STATUS_ID;
 
     @NotBlank(message = MESSAGE_TO_NULL_CANCEL_REASON)
     private String cancelReason;

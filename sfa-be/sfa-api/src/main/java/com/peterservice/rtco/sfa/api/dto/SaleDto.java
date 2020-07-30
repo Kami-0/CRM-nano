@@ -1,15 +1,12 @@
 package com.peterservice.rtco.sfa.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
-import static com.peterservice.rtco.sfa.api.constans.DtoConstants.*;
+import static com.peterservice.rtco.sfa.api.constan.DtoConstants.*;
 
 /**
  * @author Daniil.Makarov
@@ -18,6 +15,7 @@ import static com.peterservice.rtco.sfa.api.constans.DtoConstants.*;
 @AllArgsConstructor
 @Data
 @ToString
+@Builder
 public class SaleDto {
 
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
@@ -30,16 +28,16 @@ public class SaleDto {
 
     @NotNull(message = MESSAGE_TO_NULL_CUST_CUST_ID)
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
-    private long custCustId;
+    private Long custCustId;
 
     @NotNull(message = MESSAGE_TO_NULL_SSTAT_SSTAT_ID)
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
-    private long sstatSstatId;
+    private Long sstatSstatId;
 
     private String cancelReason;
 
     @NotNull(message = MESSAGE_TO_NULL_CNTR_CNTR_ID)
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
-    private long cntrCntrId;
+    private Long cntrCntrId;
 
 }

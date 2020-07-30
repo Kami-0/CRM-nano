@@ -1,4 +1,4 @@
-package com.peterservice.rtco.sfa.api.constans;
+package com.peterservice.rtco.sfa.api.constan;
 
 public final class DtoConstants {
     public static final int ID_MIN = 1;

@@ -1,7 +1,7 @@
 package com.peterservice.rtco.sfa.handler;
 
-import com.peterservice.rtco.sfa.api.commons.exceptions.EntityNotFoundException;
-import com.peterservice.rtco.sfa.api.commons.types.EntityType;
+import com.peterservice.rtco.sfa.api.common.exceptions.EntityNotFoundException;
+import com.peterservice.rtco.sfa.api.common.types.EntityType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpHeaders;
