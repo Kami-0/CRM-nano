@@ -1,5 +1,6 @@
 package com.peterservice.rtco.sfa.handler;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.peterservice.rtco.sfa.api.common.exceptions.EntityNotFoundException;
 import com.peterservice.rtco.sfa.api.common.types.EntityType;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Data;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -22,13 +24,29 @@ import javax.validation.ConstraintViolationException;
 @ControllerAdvice
 public class WebExceptionHandler extends ResponseEntityExceptionHandler {
 
+    /**
+     * При некорректном запросе
+     */
     @Override
     protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return new ResponseEntity<>(
-                new ExceptionResponse(HttpStatus.NOT_FOUND.value(), "Некорректный запрос"),
+                new ExceptionResponse(HttpStatus.NOT_FOUND.value(), "Некорректный запрос", ex.getMessage()),
                 HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * При неправильном json формате
+     */
+    @Override
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return new ResponseEntity<>(
+                new ExceptionResponse(HttpStatus.BAD_REQUEST.value(), "Некорректный JSON запрос", ex.getMessage()),
+                HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * При невалидном id
+     */
     @ExceptionHandler(EntityNotFoundException.class)
     protected ResponseEntity<ExceptionResponseEntity> handleNotFoundException(EntityNotFoundException ex) {
         return new ResponseEntity<>(
@@ -38,22 +56,29 @@ public class WebExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * При невалидных параметрах запроса
+     */
     @ExceptionHandler(ConstraintViolationException.class)
     protected ResponseEntity<ExceptionResponse> handlePathVariableException(ConstraintViolationException ex) {
         return new ResponseEntity<>(
-                new ExceptionResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage()),
+                new ExceptionResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage(), ex.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * При невалидности переменой в пути запроса
+     */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     protected ResponseEntity<ExceptionResponse> handleIncorrectPath(MethodArgumentTypeMismatchException ex) {
         return new ResponseEntity<>(
-                new ExceptionResponse(HttpStatus.NOT_FOUND.value(), "Некорректный " + ex.getParameter().getParameterName()),
+                new ExceptionResponse(HttpStatus.NOT_FOUND.value(), "Некорректный " + ex.getParameter().getParameterName(), ex.getMessage()),
                 HttpStatus.NOT_FOUND);
     }
 
     @Data
     @AllArgsConstructor
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private static class ExceptionResponseEntity {
         private int status;
         private EntityType entityType;
@@ -62,8 +87,11 @@ public class WebExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Data
     @AllArgsConstructor
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private static class ExceptionResponse {
         private int status;
         private String message;
+        private String debugMessage;
     }
+
 }

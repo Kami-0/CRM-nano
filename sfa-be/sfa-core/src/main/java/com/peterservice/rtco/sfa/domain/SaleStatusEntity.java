@@ -1,9 +1,6 @@
 package com.peterservice.rtco.sfa.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -15,6 +12,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@ToString
 public class SaleStatusEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +28,4 @@ public class SaleStatusEntity {
     @Column(name = "is_active_yn")
     private boolean isActiveYn;
 
-    @Override
-    public String toString() {
-        return String.format(
-                "SaleStatus[sstatId=%d, keyName='%s', name='%s', isActiveYn='%b']",
-                sstatId, keyName, name, isActiveYn);
-    }
 }

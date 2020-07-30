@@ -33,7 +33,7 @@ public class SalesController implements SalesApi {
     }
 
     @Override
-    @PostMapping(value = "/{id}/cancel")
+    @PutMapping(value = "/{id}/cancel")
     public SaleDto cancelSale(@RequestBody SalesCancellationDto salesCancellationDto, @PathVariable long id) {
         return salesService.cancelSale(salesCancellationDto, id);
     }

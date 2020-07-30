@@ -1,9 +1,6 @@
 package com.peterservice.rtco.sfa.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -16,11 +13,12 @@ import java.time.Instant;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@ToString
 public class SaleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sale_id")
-    private long saleId;
+    private Long saleId;
 
     @Column(name = "sale_start_date")
     private Instant saleStartDate;
@@ -29,26 +27,15 @@ public class SaleEntity {
     private Instant saleEndDate;
 
     @Column(name = "cust_cust_id")
-    private long custCustId;
+    private Long custCustId;
 
     @ManyToOne
     @JoinColumn(name = "sstat_sstat_id")
     private SaleStatusEntity sstatSstatId;
 
-    @Column(name = "cancel_reason", nullable = false)
+    @Column(name = "cancel_reason")
     private String cancelReason;
 
     @Column(name = "cntr_cntr_id")
-    private long cntrCntrId;
-
-    @Override
-    public String toString() {
-        return String.format(
-                "Sale[saleId='%d', saleStartDate='%s', " +
-                        "saleEndDate='%s', custCustId='%d', " +
-                        "sstatSstatId='%d', sstatSstatId='%d', " +
-                        "cancelReason='%s', cntrCntrId='%d']",
-                saleId, saleStartDate, saleEndDate, custCustId,
-                sstatSstatId, sstatSstatId, cancelReason, cntrCntrId);
-    }
+    private Long cntrCntrId;
 }
