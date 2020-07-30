@@ -2,6 +2,8 @@ package com.peterservice.rtco.crm.nano.composite.configuration
 
 import com.peterservice.rtco.crm.nano.cam.CamCustomerApiFeign
 import com.peterservice.rtco.crm.nano.cam.CamDictionaryApiFeign
+import com.peterservice.rtco.crm.nano.cam.CustomerApi
+import com.peterservice.rtco.crm.nano.cam.DictionaryApi
 import feign.Feign
 import feign.jackson.JacksonDecoder
 import feign.jackson.JacksonEncoder

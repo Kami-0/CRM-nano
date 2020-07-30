@@ -8,7 +8,7 @@ import feign.RequestLine;
 
 import java.util.List;
 
-public interface CamDictionaryApiFeign {
+public interface CamDictionaryApiFeign extends DictionaryApi{
     @RequestLine("GET /dictionary/banks")
     List<BankDto> getAllBanks();
 
