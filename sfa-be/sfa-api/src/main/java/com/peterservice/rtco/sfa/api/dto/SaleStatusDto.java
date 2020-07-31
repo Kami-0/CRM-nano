@@ -1,11 +1,8 @@
 package com.peterservice.rtco.sfa.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -15,12 +12,14 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Data
 @ToString
+@Builder
+@EqualsAndHashCode
 public class SaleStatusDto {
     @NotNull
     private long sstatId;
-    @NotEmpty
+    @NotBlank
     private String keyName;
-    @NotEmpty
+    @NotBlank
     private String name;
     @NotNull
     private boolean isActiveYn;

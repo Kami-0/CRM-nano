@@ -17,6 +17,7 @@
     <modules>
         <module>sfa-core</module>
         <module>sfa-api</module>
+        <module>sfa-feign</module>
     </modules>
 
 </project>
