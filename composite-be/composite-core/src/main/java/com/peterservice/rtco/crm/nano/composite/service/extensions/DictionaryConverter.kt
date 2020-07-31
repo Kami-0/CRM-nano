@@ -1,13 +1,13 @@
 package com.peterservice.rtco.crm.nano.composite.service.extensions
 
-import com.peterservice.rtco.crm.nano.cam.dto.BankDto
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatusDto
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerTypeDto
-import com.peterservice.rtco.crm.nano.composite.dto.dto.BankDtoComposite
-import com.peterservice.rtco.crm.nano.composite.dto.dto.CustomerStatusDtoComposite
-import com.peterservice.rtco.crm.nano.composite.dto.dto.CustomerTypeDtoComposite
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatus
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerType
+import com.peterservice.rtco.crm.nano.cam.dto.Bank
+import com.peterservice.rtco.crm.nano.composite.dto.BankDto
+import com.peterservice.rtco.crm.nano.composite.dto.CustomerStatusDto
+import com.peterservice.rtco.crm.nano.composite.dto.CustomerTypeDto
 
-fun BankDto.toBankDtoComposite(): BankDtoComposite = BankDtoComposite(
+fun Bank.toBankDtoComposite(): BankDto = BankDto(
         bankId = this.bankId,
         name = this.name,
         address = this.address,
@@ -20,13 +20,13 @@ fun BankDto.toBankDtoComposite(): BankDtoComposite = BankDtoComposite(
         lastChgDate = this.lastChgDate
 )
 
-fun CustomerStatusDto.toCustomerStatusDtoComposite(): CustomerStatusDtoComposite = CustomerStatusDtoComposite(
+fun CustomerStatus.toCustomerStatusDtoComposite(): CustomerStatusDto = CustomerStatusDto(
         statusId = this.statusId,
         name = this.name,
         keyName = this.keyName
 )
 
-fun CustomerTypeDto.toCustomerTypeDtoComposite(): CustomerTypeDtoComposite = CustomerTypeDtoComposite(
+fun CustomerType.toCustomerTypeDtoComposite(): CustomerTypeDto = CustomerTypeDto(
         typeId = this.typeId,
         keyName = this.keyName,
         name = this.name

@@ -1,9 +1,9 @@
 package com.peterservice.rtco.crm.nano.composite.service.extensions
 
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerDto
-import com.peterservice.rtco.crm.nano.composite.dto.dto.CustomerDtoComposite
+import com.peterservice.rtco.crm.nano.cam.dto.Customer
+import com.peterservice.rtco.crm.nano.composite.dto.CustomerDto
 
-fun CustomerDto.toCustomerDtoComposite(): CustomerDtoComposite = CustomerDtoComposite(
+fun Customer.toCustomerDtoComposite(): CustomerDto = CustomerDto(
         id = this.id,
         typeTypeId = this.typeTypeId,
         statusStatusId = this.statusStatusId,
@@ -13,7 +13,7 @@ fun CustomerDto.toCustomerDtoComposite(): CustomerDtoComposite = CustomerDtoComp
         bankId = this.bankId
 )
 
-fun CustomerDtoComposite.toCustomerDto(): CustomerDto = CustomerDto(
+fun CustomerDto.toCustomerDto(): Customer = Customer(
         this.id,
         this.typeTypeId,
         this.statusStatusId,

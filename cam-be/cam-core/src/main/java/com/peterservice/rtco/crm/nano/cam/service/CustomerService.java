@@ -1,20 +1,20 @@
 package com.peterservice.rtco.crm.nano.cam.service;
 
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Customer;
 
 import java.util.List;
 
 public interface CustomerService {
 
-    List<CustomerDto> getAll(Integer limit, Integer offset);
+    List<Customer> getAll(Integer limit, Integer offset);
 
-    CustomerDto getById(Long id);
+    Customer getById(Long id);
 
-    CustomerDto getByName(String nameCustomer);
+    Customer getByName(String nameCustomer);
 
-    CustomerDto create(CustomerDto customerDto);
+    Customer create(Customer customer);
 
-    CustomerDto update(Long id, CustomerDto customerDto);
+    Customer update(Long id, Customer customer);
 
     void delete(Long id);
 }

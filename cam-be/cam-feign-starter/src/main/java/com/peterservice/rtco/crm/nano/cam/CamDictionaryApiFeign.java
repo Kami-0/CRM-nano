@@ -1,8 +1,8 @@
 package com.peterservice.rtco.crm.nano.cam;
 
-import com.peterservice.rtco.crm.nano.cam.dto.BankDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatusDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerTypeDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Bank;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatus;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerType;
 import feign.Param;
 import feign.RequestLine;
 
@@ -10,20 +10,20 @@ import java.util.List;
 
 public interface CamDictionaryApiFeign extends DictionaryApi{
     @RequestLine("GET /dictionary/banks")
-    List<BankDto> getAllBanks();
+    List<Bank> getAllBanks();
 
     @RequestLine("GET /dictionary/banks/{id}")
-    BankDto getBankById(@Param("id") Long id);
+    Bank getBankById(@Param("id") Long id);
 
     @RequestLine("GET /dictionary/types")
-    List<CustomerTypeDto> getAllCustomersType();
+    List<CustomerType> getAllCustomersType();
 
     @RequestLine("GET /dictionary/types/{id}")
-    CustomerTypeDto getTypeById(@Param("id") Long id);
+    CustomerType getTypeById(@Param("id") Long id);
 
     @RequestLine("GET /dictionary/statuses")
-    List<CustomerStatusDto> getAllCustomersStatus();
+    List<CustomerStatus> getAllCustomersStatus();
 
     @RequestLine("GET /dictionary/statuses/{id}")
-    CustomerStatusDto getStatusById(@Param("id") Long id);
+    CustomerStatus getStatusById(@Param("id") Long id);
 }

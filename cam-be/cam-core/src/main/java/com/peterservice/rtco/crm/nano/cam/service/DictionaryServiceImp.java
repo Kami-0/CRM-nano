@@ -3,9 +3,9 @@ package com.peterservice.rtco.crm.nano.cam.service;
 import com.peterservice.rtco.crm.nano.cam.domain.BankEntity;
 import com.peterservice.rtco.crm.nano.cam.domain.CustomerStatusEntity;
 import com.peterservice.rtco.crm.nano.cam.domain.CustomerTypeEntity;
-import com.peterservice.rtco.crm.nano.cam.dto.BankDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatusDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerTypeDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Bank;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatus;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerType;
 import com.peterservice.rtco.crm.nano.cam.repository.CustomerBankRepository;
 import com.peterservice.rtco.crm.nano.cam.repository.CustomerStatusRepository;
 import com.peterservice.rtco.crm.nano.cam.repository.CustomerTypeRepository;
@@ -27,7 +27,7 @@ public class DictionaryServiceImp implements DictionaryService {
     private CustomerStatusRepository customerStatusRepository;
 
     @Override
-    public List<CustomerTypeDto> getAllTypes() {
+    public List<CustomerType> getAllTypes() {
         return customerTypeRepository
                 .findAll()
                 .stream()
@@ -36,7 +36,7 @@ public class DictionaryServiceImp implements DictionaryService {
     }
 
     @Override
-    public List<CustomerStatusDto> getAllStatuses() {
+    public List<CustomerStatus> getAllStatuses() {
         return customerStatusRepository
                 .findAll()
                 .stream()
@@ -45,7 +45,7 @@ public class DictionaryServiceImp implements DictionaryService {
     }
 
     @Override
-    public List<BankDto> getAllBanks() {
+    public List<Bank> getAllBanks() {
         return customerBankRepository
                 .findAll()
                 .stream()
@@ -54,38 +54,38 @@ public class DictionaryServiceImp implements DictionaryService {
     }
 
     @Override
-    public CustomerTypeDto getTypeById(Long id) {
+    public CustomerType getTypeById(Long id) {
         return entityToDto(customerTypeRepository.getOne(id));
     }
 
     @Override
-    public CustomerStatusDto getStatusById(Long id) {
+    public CustomerStatus getStatusById(Long id) {
         return entityToDto(customerStatusRepository.getOne(id));
     }
 
     @Override
-    public BankDto getBankById(Long id) {
+    public Bank getBankById(Long id) {
         return entityToDto(customerBankRepository.getOne(id));
     }
 
-    private CustomerTypeDto entityToDto(CustomerTypeEntity customerTypeEntity) {
-        return CustomerTypeDto.builder()
+    private CustomerType entityToDto(CustomerTypeEntity customerTypeEntity) {
+        return CustomerType.builder()
                 .typeId(customerTypeEntity.getTypeId())
                 .keyName(customerTypeEntity.getKeyName())
                 .name(customerTypeEntity.getName())
                 .build();
     }
 
-    private CustomerStatusDto entityToDto(CustomerStatusEntity customerStatusEntity) {
-        return CustomerStatusDto.builder()
+    private CustomerStatus entityToDto(CustomerStatusEntity customerStatusEntity) {
+        return CustomerStatus.builder()
                 .statusId(customerStatusEntity.getStatusId())
                 .keyName(customerStatusEntity.getKeyName())
                 .name(customerStatusEntity.getName())
                 .build();
     }
 
-    private BankDto entityToDto(BankEntity customerBankEntity) {
-        return BankDto.builder()
+    private Bank entityToDto(BankEntity customerBankEntity) {
+        return Bank.builder()
                 .bankId(customerBankEntity.getBankId())
                 .name(customerBankEntity.getName())
                 .address(customerBankEntity.getAddress())

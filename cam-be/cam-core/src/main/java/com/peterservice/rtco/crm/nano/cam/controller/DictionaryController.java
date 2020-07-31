@@ -1,9 +1,9 @@
 package com.peterservice.rtco.crm.nano.cam.controller;
 
 import com.peterservice.rtco.crm.nano.cam.DictionaryApi;
-import com.peterservice.rtco.crm.nano.cam.dto.BankDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatusDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerTypeDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Bank;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatus;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerType;
 import com.peterservice.rtco.crm.nano.cam.service.DictionaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,37 +19,37 @@ public class DictionaryController implements DictionaryApi {
 
     @Override
     @GetMapping("/banks")
-    public List<BankDto> getAllBanks() {
+    public List<Bank> getAllBanks() {
         return dictionaryService.getAllBanks();
     }
 
     @Override
     @GetMapping("/banks/{id}")
-    public BankDto getBankById(@PathVariable(name = "id") Long id) {
+    public Bank getBankById(@PathVariable(name = "id") Long id) {
         return dictionaryService.getBankById(id);
     }
 
     @Override
     @GetMapping("/types")
-    public List<CustomerTypeDto> getAllCustomersType() {
+    public List<CustomerType> getAllCustomersType() {
         return dictionaryService.getAllTypes();
     }
 
     @Override
     @GetMapping("/types/{id}")
-    public CustomerTypeDto getTypeById(@PathVariable(name = "id") Long id) {
+    public CustomerType getTypeById(@PathVariable(name = "id") Long id) {
         return dictionaryService.getTypeById(id);
     }
 
     @Override
     @GetMapping("/statuses")
-    public List<CustomerStatusDto> getAllCustomersStatus() {
+    public List<CustomerStatus> getAllCustomersStatus() {
         return dictionaryService.getAllStatuses();
     }
 
     @Override
     @GetMapping("/statuses/{id}")
-    public CustomerStatusDto getStatusById(@PathVariable(name = "id") Long id) {
+    public CustomerStatus getStatusById(@PathVariable(name = "id") Long id) {
         return dictionaryService.getStatusById(id);
     }
 }

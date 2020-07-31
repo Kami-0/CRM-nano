@@ -1,7 +1,7 @@
 package com.peterservice.rtco.crm.nano.cam.service;
 
 import com.peterservice.rtco.crm.nano.cam.domain.CustomerEntity;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Customer;
 import com.peterservice.rtco.crm.nano.cam.repository.CustomerRepository;
 import com.peterservice.rtco.crm.nano.cam.repository.CustomerBankRepository;
 import com.peterservice.rtco.crm.nano.cam.repository.CustomerStatusRepository;
@@ -35,7 +35,7 @@ public class CustomerServiceImp implements CustomerService {
 
     @Transactional
     @Override
-    public List<CustomerDto> getAll(Integer limit, Integer offset) {
+    public List<Customer> getAll(Integer limit, Integer offset) {
         Pageable paging = PageRequest.of(offset / limit, limit);
         Page<CustomerEntity> pageResult = customerRepository.findAll(paging);
         return pageResult
@@ -46,13 +46,13 @@ public class CustomerServiceImp implements CustomerService {
 
     @Transactional
     @Override
-    public CustomerDto getById(Long id) {
+    public Customer getById(Long id) {
         return entityToDto(customerRepository.getOne(id));
     }
 
     @Transactional
     @Override
-    public CustomerDto getByName(String name) {
+    public Customer getByName(String name) {
         CustomerEntity customerEntity = customerRepository.findByName(name);
         if(customerEntity == null)
             throw new EntityNotFoundException("Failed to find customer with name: " + name);
@@ -61,22 +61,22 @@ public class CustomerServiceImp implements CustomerService {
 
     @Transactional
     @Override
-    public CustomerDto create(CustomerDto customerDto) {
-        CustomerEntity result = customerRepository.save(dtoToEntity(customerDto));
+    public Customer create(Customer customer) {
+        CustomerEntity result = customerRepository.save(dtoToEntity(customer));
         return entityToDto(result);
     }
 
     @Transactional
     @Override
-    public CustomerDto update(Long id, CustomerDto customerDto) {
+    public Customer update(Long id, Customer customer) {
         CustomerEntity customerEntity = customerRepository.getOne(id);
         customerEntity.setId(id);
-        customerEntity.setName(customerDto.getName());
-        customerEntity.setInn(customerDto.getInn());
-        customerEntity.setKpp(customerDto.getKpp());
-        customerEntity.setBank(customerBankRepository.getOne(customerDto.getBankId()));
-        customerEntity.setStatus(customerStatusRepository.getOne(customerDto.getStatusStatusId()));
-        customerEntity.setType(customerTypeRepository.getOne(customerDto.getTypeTypeId()));
+        customerEntity.setName(customer.getName());
+        customerEntity.setInn(customer.getInn());
+        customerEntity.setKpp(customer.getKpp());
+        customerEntity.setBank(customerBankRepository.getOne(customer.getBankId()));
+        customerEntity.setStatus(customerStatusRepository.getOne(customer.getStatusStatusId()));
+        customerEntity.setType(customerTypeRepository.getOne(customer.getTypeTypeId()));
         CustomerEntity result = customerRepository.save(customerEntity);
         return entityToDto(result);
     }
@@ -87,8 +87,8 @@ public class CustomerServiceImp implements CustomerService {
         customerRepository.deleteById(id);
     }
 
-    private CustomerDto entityToDto(CustomerEntity customerEntity) {
-        return CustomerDto.builder()
+    private Customer entityToDto(CustomerEntity customerEntity) {
+        return Customer.builder()
                 .id(customerEntity.getId())
                 .name(customerEntity.getName())
                 .inn(customerEntity.getInn())
@@ -99,14 +99,14 @@ public class CustomerServiceImp implements CustomerService {
                 .build();
     }
 
-    private CustomerEntity dtoToEntity(CustomerDto customerDto) {
+    private CustomerEntity dtoToEntity(Customer customer) {
         return CustomerEntity.builder()
-                .name(customerDto.getName())
-                .inn(customerDto.getInn())
-                .kpp(customerDto.getKpp())
-                .bank(customerBankRepository.getOne(customerDto.getBankId()))
-                .status(customerStatusRepository.getOne(customerDto.getStatusStatusId()))
-                .type(customerTypeRepository.getOne(customerDto.getTypeTypeId()))
+                .name(customer.getName())
+                .inn(customer.getInn())
+                .kpp(customer.getKpp())
+                .bank(customerBankRepository.getOne(customer.getBankId()))
+                .status(customerStatusRepository.getOne(customer.getStatusStatusId()))
+                .type(customerTypeRepository.getOne(customer.getTypeTypeId()))
                 .build();
     }
 }

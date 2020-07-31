@@ -1,22 +1,22 @@
 package com.peterservice.rtco.crm.nano.cam;
 
-import com.peterservice.rtco.crm.nano.cam.dto.BankDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatusDto;
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerTypeDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Bank;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerStatus;
+import com.peterservice.rtco.crm.nano.cam.dto.CustomerType;
 
 import java.util.List;
 
 public interface DictionaryApi {
 
-    List<BankDto> getAllBanks();
+    List<Bank> getAllBanks();
     
-    BankDto getBankById(Long id);
+    Bank getBankById(Long id);
 
-    List<CustomerTypeDto> getAllCustomersType();
+    List<CustomerType> getAllCustomersType();
 
-    CustomerTypeDto getTypeById(Long id);
+    CustomerType getTypeById(Long id);
 
-    List<CustomerStatusDto> getAllCustomersStatus();
+    List<CustomerStatus> getAllCustomersStatus();
 
-    CustomerStatusDto getStatusById(Long id);
+    CustomerStatus getStatusById(Long id);
 }

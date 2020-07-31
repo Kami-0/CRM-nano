@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerTypeDto {
+public class CustomerType {
     private Long typeId;
 
     private String keyName;

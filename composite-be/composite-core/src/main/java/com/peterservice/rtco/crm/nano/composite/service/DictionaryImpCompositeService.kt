@@ -1,32 +1,33 @@
 package com.peterservice.rtco.crm.nano.composite.service
 
 import com.peterservice.rtco.crm.nano.cam.DictionaryApi
-import com.peterservice.rtco.crm.nano.composite.dto.dto.BankDtoComposite
-import com.peterservice.rtco.crm.nano.composite.dto.dto.CustomerStatusDtoComposite
-import com.peterservice.rtco.crm.nano.composite.dto.dto.CustomerTypeDtoComposite
+import com.peterservice.rtco.crm.nano.composite.dto.BankDto
+import com.peterservice.rtco.crm.nano.composite.dto.CustomerStatusDto
+import com.peterservice.rtco.crm.nano.composite.dto.CustomerTypeDto
 import com.peterservice.rtco.crm.nano.composite.service.extensions.toBankDtoComposite
 import com.peterservice.rtco.crm.nano.composite.service.extensions.toCustomerStatusDtoComposite
 import com.peterservice.rtco.crm.nano.composite.service.extensions.toCustomerTypeDtoComposite
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class DictionaryServiceImpComposite (
+class DictionaryImpCompositeService (
         @Autowired
         private val dictionaryApi: DictionaryApi
-) : DictionaryServiceComposite
+) : DictionaryCompositeService
 {
-    override fun getAllTypes(): List<CustomerTypeDtoComposite> {
+    override fun getAllTypes(): List<CustomerTypeDto> {
         val customerTypes = dictionaryApi.allCustomersType
         return customerTypes.map{ it.toCustomerTypeDtoComposite()}
     }
 
-    override fun getAllStatuses(): List<CustomerStatusDtoComposite> {
+    override fun getAllStatuses(): List<CustomerStatusDto> {
         val customerStatuses = dictionaryApi.allCustomersStatus
         return customerStatuses.map { it.toCustomerStatusDtoComposite() }
     }
 
-    override fun getAllBanks(): List<BankDtoComposite> {
+    override fun getAllBanks(): List<BankDto> {
         val banks = dictionaryApi.allBanks
         return banks.map { it.toBankDtoComposite() }
     }

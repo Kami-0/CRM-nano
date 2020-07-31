@@ -1,6 +1,6 @@
 package com.peterservice.rtco.crm.nano.cam;
 
-import com.peterservice.rtco.crm.nano.cam.dto.CustomerDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Customer;
 import feign.Feign;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
@@ -16,7 +16,7 @@ public class TestFeignClient {
                 .encoder(ENCODER)
                 .decoder(DECODER)
                 .target(CamCustomerApiFeign.class, "http://localhost:8080");
-        CustomerDto petrov = CustomerDto.builder()
+        Customer petrov = Customer.builder()
                 .name("Petrov")
                 .bankId(2L)
                 .inn(5477878978L)
@@ -24,7 +24,7 @@ public class TestFeignClient {
                 .statusStatusId(2L)
                 .typeTypeId(1L)
                 .build();
-        CustomerDto response = camCustomerApiFeign.createCustomer(petrov);
+        Customer response = camCustomerApiFeign.createCustomer(petrov);
         System.out.println(response);
     }
 

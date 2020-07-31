@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TestConfig.class,
-        properties = {"server.port=55003"},
+        properties = {"server.port=8080"},
         webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ComponentScan
 public abstract class AbstractTest {

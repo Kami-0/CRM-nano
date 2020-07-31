@@ -1,6 +1,6 @@
 package com.peterservice.rtco.crm.nano.cam;
 
-import com.peterservice.rtco.crm.nano.cam.dto.BankDto;
+import com.peterservice.rtco.crm.nano.cam.dto.Bank;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,17 +10,17 @@ public class DictionaryFeignTest extends AbstractFeignTest {
 
     @Test
     public void testGetAllBanks() {
-        List<BankDto> banksFromService = dictionaryService.getAllBanks();
-        List<BankDto> response = dictionaryApi.getAllBanks();
+        List<Bank> banksFromService = dictionaryService.getAllBanks();
+        List<Bank> response = dictionaryApi.getAllBanks();
         Assert.assertNotNull(response);
         Assert.assertEquals(banksFromService.size(), response.size());
     }
 
     @Test
     public void testBankById() {
-        List<BankDto> banksFromService = dictionaryService.getAllBanks();
-        for(BankDto bank : banksFromService) {
-            BankDto response = dictionaryApi.getBankById(bank.getBankId());
+        List<Bank> banksFromService = dictionaryService.getAllBanks();
+        for(Bank bank : banksFromService) {
+            Bank response = dictionaryApi.getBankById(bank.getBankId());
             Assert.assertNotNull(response);
             Assert.assertEquals(bank.getName(), response.getName());
             Assert.assertEquals(bank.getAddress(), response.getAddress());

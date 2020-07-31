@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerStatusDto {
+public class CustomerStatus {
     private Long statusId;
 
     private String keyName;
