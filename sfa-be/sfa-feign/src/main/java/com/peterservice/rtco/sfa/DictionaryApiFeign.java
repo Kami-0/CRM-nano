@@ -11,6 +11,7 @@ import java.util.List;
 import static com.peterservice.rtco.sfa.api.constan.ApiConstants.ID_MIN;
 import static com.peterservice.rtco.sfa.api.constan.ApiConstants.MESSAGE_TO_NOT_VALID_ID;
 
+
 public interface DictionaryApiFeign extends DictionaryApi {
     @RequestLine("GET /dictionary/sale/statuses")
     List<SaleStatusDto> getAllSaleStatuses();

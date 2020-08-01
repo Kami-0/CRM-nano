@@ -1,9 +1,6 @@
 package com.peterservice.rtco.sfa.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -17,6 +14,7 @@ import static com.peterservice.rtco.sfa.api.constan.DtoConstants.*;
 @AllArgsConstructor
 @Data
 @ToString
+@Builder
 public class SalesCreationDto {
     @NotNull(message = MESSAGE_TO_NULL_CUST_CUST_ID)
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)

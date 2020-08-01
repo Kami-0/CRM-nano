@@ -16,6 +16,7 @@ import static com.peterservice.rtco.sfa.api.constan.DtoConstants.*;
 @Data
 @ToString
 @Builder
+@EqualsAndHashCode
 public class SaleDto {
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
     private Long saleId;

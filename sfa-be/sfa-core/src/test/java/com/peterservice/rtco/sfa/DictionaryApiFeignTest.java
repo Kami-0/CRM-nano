@@ -2,32 +2,26 @@ package com.peterservice.rtco.sfa;
 
 import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @Slf4j
 class DictionaryApiFeignTest {
     private static final long OPEN_STATUS_ID = 1;
-    private DictionaryApiFeign dictionaryClient;
 
-    @BeforeEach
-    void setUp() {
-        ControllerFeignClientBuilder feignClientBuilder = new ControllerFeignClientBuilder();
-        dictionaryClient = feignClientBuilder.getDictionaryClient();
-    }
+    private final ControllerFeignClientBuilder feignClientBuilder = new ControllerFeignClientBuilder();
+    private final DictionaryApiFeign dictionaryClient = feignClientBuilder.getDictionaryClient();
 
     /**
      * Проверяет пришли ли статусы продаж, хотя бы 1 должен быть
      */
     @Test
-    void getAllSaleStatuses() {
+    void getAllSaleStatuses() throws Exception {
         List<SaleStatusDto> allSaleStatuses = dictionaryClient.getAllSaleStatuses();
-        assertFalse(allSaleStatuses.isEmpty());
+        Assertions.assertFalse(allSaleStatuses.isEmpty());
         log.debug(allSaleStatuses.toString());
     }
 
@@ -35,9 +29,9 @@ class DictionaryApiFeignTest {
      * Проверяет что статусы продаж это обьекты, а не null
      */
     @Test
-    void checkForNullOfSaleStatuses() {
+    void checkForNullOfSaleStatuses() throws Exception {
         List<SaleStatusDto> allSaleStatuses = dictionaryClient.getAllSaleStatuses();
-        assertTrue(allSaleStatuses.stream().noneMatch(Objects::isNull));
+        Assertions.assertTrue(allSaleStatuses.stream().noneMatch(Objects::isNull));
         log.debug(allSaleStatuses.toString());
     }
 
@@ -45,7 +39,7 @@ class DictionaryApiFeignTest {
      * Проверяет OPEN статус продажи
      */
     @Test
-    void getSaleStatusById() {
+    void getSaleStatusById() throws Exception {
         SaleStatusDto saleStatusById = dictionaryClient.getSaleStatusById(OPEN_STATUS_ID);
         SaleStatusDto saleStatusDto = SaleStatusDto.builder()
                 .sstatId(OPEN_STATUS_ID)
@@ -53,7 +47,7 @@ class DictionaryApiFeignTest {
                 .name("open")
                 .isActiveYn(true)
                 .build();
-        assertEquals(saleStatusById, saleStatusDto);
+        Assertions.assertEquals(saleStatusById, saleStatusDto);
         log.debug("{} ? {}", saleStatusById, saleStatusDto);
     }
 }
