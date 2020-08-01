@@ -1,13 +1,11 @@
 package com.peterservice.rtco.sfa;
 
 import feign.Feign;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
+import feign.gson.GsonEncoder;
 import lombok.Getter;
-import org.springframework.context.annotation.PropertySource;
 
 @Getter
-@PropertySource("classpath:application.properties")
+//@PropertySource("classpath:application.properties")
 public class ControllerFeignClientBuilder {
     private static final String URI = "http://localhost:8080";
 
@@ -20,8 +18,8 @@ public class ControllerFeignClientBuilder {
 
     private <T> T createClient(Class<T> type) {
         return Feign.builder()
-                .encoder(new JacksonEncoder())
-                .decoder(new JacksonDecoder())
+                .encoder(new GsonEncoder())
+                .decoder(new InstantGsonDecoder())
                 .target(type, URI);
     }
 }
