@@ -1,10 +1,14 @@
 package com.peterservice.rtco.sfa;
 
 import feign.Feign;
+import feign.Logger;
 import feign.gson.GsonEncoder;
+import feign.slf4j.Slf4jLogger;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 
 @Getter
+@Component
 //@PropertySource("classpath:application.properties")
 public class ControllerFeignClientBuilder {
     private static final String URI = "http://localhost:8080";
@@ -18,6 +22,8 @@ public class ControllerFeignClientBuilder {
 
     private <T> T createClient(Class<T> type) {
         return Feign.builder()
+                .logger(new Slf4jLogger())
+                .logLevel(Logger.Level.FULL)
                 .encoder(new GsonEncoder())
                 .decoder(new InstantGsonDecoder())
                 .target(type, URI);

@@ -47,7 +47,6 @@ public class SalesService {
     @Transactional
     public SaleDto cancelSale(SalesCancellationDto salesCancellationDto, long id) {
         SaleDto saleDto = DtoToEntityConverter.convert(saleRepository.getOne(id));
-        //todo:Проверка на null
         saleDto.setCancelReason(salesCancellationDto.getCancelReason());
         saleDto.setSstatSstatId(SALES_CANCEL_STATUS_ID);
         saleDto.setSaleEndDate(Instant.now());
@@ -59,7 +58,6 @@ public class SalesService {
     @Transactional
     public SaleDto closeSale(long id) {
         SaleDto saleDto = DtoToEntityConverter.convert(saleRepository.getOne(id));
-        //todo:Проверка на null
         saleDto.setSstatSstatId(SALES_CLOSURE_STATUS_ID);
         saleDto.setSaleEndDate(Instant.now());
         SaleEntity result = saleRepository.save(EntityToDtoConverter

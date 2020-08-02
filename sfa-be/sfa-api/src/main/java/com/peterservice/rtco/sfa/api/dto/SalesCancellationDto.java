@@ -1,9 +1,6 @@
 package com.peterservice.rtco.sfa.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 
@@ -16,7 +13,8 @@ import static com.peterservice.rtco.sfa.api.constan.DtoConstants.MESSAGE_TO_NULL
 @AllArgsConstructor
 @Data
 @ToString
-public class SalesCancellationDto {
+@Builder
+public class SalesCancellationDto implements DtoInterface {
     @NotBlank(message = MESSAGE_TO_NULL_CANCEL_REASON)
     private String cancelReason;
 }
