@@ -5,19 +5,23 @@ import feign.Logger;
 import feign.gson.GsonEncoder;
 import feign.slf4j.Slf4jLogger;
 import lombok.Getter;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 @Getter
-@Component
-//@PropertySource("classpath:application.properties")
+@Configuration
+@ComponentScan
 public class ControllerFeignClientBuilder {
-    private static final String URI = "http://localhost:8080";
+    private String uri;
 
-    //todo: спросить у Саши
-//    @Value("${server.uri}")
-//    private String uri;
+    @Bean
+    public DictionaryApiFeign dictionaryClient(@Value("${server.uri}") String uri) {
+        this.uri = uri;
+        return createClient(DictionaryApiFeign.class);
+    }
 
-    private final DictionaryApiFeign dictionaryClient = createClient(DictionaryApiFeign.class);
     private final SalesApiFeign saleClient = createClient(SalesApiFeign.class);
 
     private <T> T createClient(Class<T> type) {
@@ -26,7 +30,7 @@ public class ControllerFeignClientBuilder {
                 .logLevel(Logger.Level.FULL)
                 .encoder(new GsonEncoder())
                 .decoder(new InstantGsonDecoder())
-                .target(type, URI);
+                .target(type, uri);
     }
 }
 

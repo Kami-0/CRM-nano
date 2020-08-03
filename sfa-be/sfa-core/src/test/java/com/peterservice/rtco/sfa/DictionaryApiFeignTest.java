@@ -4,16 +4,19 @@ import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 import java.util.Objects;
 
 @Slf4j
+@Configuration
 class DictionaryApiFeignTest {
     private static final long OPEN_STATUS_ID = 1;
 
-    private final ControllerFeignClientBuilder feignClientBuilder = new ControllerFeignClientBuilder();
-    private final DictionaryApiFeign dictionaryClient = feignClientBuilder.getDictionaryClient();
+    @Autowired
+    private DictionaryApiFeign dictionaryClient;
 
     /**
      * Проверяет пришли ли статусы продаж, хотя бы 1 должен быть
