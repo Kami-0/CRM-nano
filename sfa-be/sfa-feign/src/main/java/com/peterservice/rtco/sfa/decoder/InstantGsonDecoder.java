@@ -1,4 +1,4 @@
-package com.peterservice.rtco.sfa;
+package com.peterservice.rtco.sfa.decoder;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;

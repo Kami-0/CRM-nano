@@ -14,7 +14,7 @@ import static com.peterservice.rtco.sfa.api.constan.DtoConstants.MESSAGE_TO_NULL
 @Data
 @ToString
 @Builder
-public class SalesCancellationDto implements DtoInterface {
+public class SalesCancellationDto {
     @NotBlank(message = MESSAGE_TO_NULL_CANCEL_REASON)
     private String cancelReason;
 }

@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @ToString
 @Builder
 @EqualsAndHashCode
-public class SaleStatusDto implements DtoInterface {
+public class SaleStatusDto {
     @NotNull
     private long sstatId;
     @NotBlank

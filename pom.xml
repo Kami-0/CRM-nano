@@ -18,6 +18,7 @@
     <modules>
         <module>sfa-be</module>
         <module>cam-be</module>
+        <module>composite-be</module>
     </modules>
 
     <dependencies>

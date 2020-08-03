@@ -1,5 +1,6 @@
 package com.peterservice.rtco.sfa;
 
+import com.peterservice.rtco.sfa.decoder.InstantGsonDecoder;
 import feign.Feign;
 import feign.Logger;
 import feign.gson.GsonEncoder;

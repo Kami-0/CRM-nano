@@ -15,7 +15,7 @@ import static com.peterservice.rtco.sfa.api.constan.DtoConstants.*;
 @Data
 @ToString
 @Builder
-public class SalesCreationDto implements DtoInterface {
+public class SalesCreationDto {
     @NotNull(message = MESSAGE_TO_NULL_CUST_CUST_ID)
     @Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID)
     private Long custCustId;
