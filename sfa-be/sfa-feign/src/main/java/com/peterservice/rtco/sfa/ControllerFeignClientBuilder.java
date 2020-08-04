@@ -9,15 +9,13 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 @Getter
 @Configuration
-@PropertySource("")
 public class ControllerFeignClientBuilder {
 
     @Value("${server.uri}")
-    private final String uri = "http://localhost:8080";
+    private String uri;
 
     @Bean
     public DictionaryApiFeign dictionaryClient() {
