@@ -1,6 +1,7 @@
 package com.peterservice.rtco.sfa;
 
 import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
+import com.peterservice.rtco.sfa.model.SaleStatusDtoTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,9 +15,8 @@ import java.util.Objects;
 
 @Slf4j
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT, properties = "application.properties")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class DictionaryApiFeignTest {
-    private static final long OPEN_STATUS_ID = 1;
 
     @Autowired
     private DictionaryApiFeign dictionaryClient;
@@ -25,7 +25,7 @@ class DictionaryApiFeignTest {
      * Проверяет пришли ли статусы продаж, хотя бы 1 должен быть
      */
     @Test
-    void getAllSaleStatuses() throws Exception {
+    void getAllSaleStatuses() {
         List<SaleStatusDto> allSaleStatuses = dictionaryClient.getAllSaleStatuses();
         Assertions.assertFalse(allSaleStatuses.isEmpty());
         log.debug(allSaleStatuses.toString());
@@ -35,7 +35,7 @@ class DictionaryApiFeignTest {
      * Проверяет что статусы продаж это обьекты, а не null
      */
     @Test
-    void checkForNullOfSaleStatuses() throws Exception {
+    void checkForNullOfSaleStatuses() {
         List<SaleStatusDto> allSaleStatuses = dictionaryClient.getAllSaleStatuses();
         Assertions.assertTrue(allSaleStatuses.stream().noneMatch(Objects::isNull));
         log.debug(allSaleStatuses.toString());
@@ -45,14 +45,9 @@ class DictionaryApiFeignTest {
      * Проверяет OPEN статус продажи
      */
     @Test
-    void getSaleStatusById() throws Exception {
-        SaleStatusDto saleStatusByIdActual = dictionaryClient.getSaleStatusById(OPEN_STATUS_ID);
-        SaleStatusDto saleStatusDtoExpected = SaleStatusDto.builder()
-                .sstatId(OPEN_STATUS_ID)
-                .keyName("OPEN")
-                .name("open")
-                .isActiveYn(true)
-                .build();
+    void getSaleStatusById() {
+        SaleStatusDto saleStatusDtoExpected = SaleStatusDtoTest.getOpenInstance();
+        SaleStatusDto saleStatusByIdActual = dictionaryClient.getSaleStatusById(saleStatusDtoExpected.getSstatId());
         Assertions.assertEquals(saleStatusDtoExpected, saleStatusByIdActual);
         log.debug("{} ? {}", saleStatusDtoExpected, saleStatusByIdActual);
     }

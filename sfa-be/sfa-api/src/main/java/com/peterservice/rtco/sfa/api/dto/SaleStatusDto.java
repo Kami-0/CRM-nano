@@ -16,11 +16,11 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode
 public class SaleStatusDto {
     @NotNull
-    private long sstatId;
+    private Long sstatId;
     @NotBlank
     private String keyName;
     @NotBlank
     private String name;
     @NotNull
-    private boolean isActiveYn;
+    private Boolean isActiveYn;
 }

@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,9 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class SalesApiFeignTest {
-    private final SalesApiFeign saleClient = new ControllerFeignClientBuilder().getSaleClient();
+
+    @Autowired
+    private SalesApiFeign saleClient;
 
     /**
      * Проверка получения по id
@@ -82,19 +85,6 @@ class SalesApiFeignTest {
         log("closeSale", expectedSaleDto, actualSaleDto);
         Assertions.assertEquals(expectedSaleDto, actualSaleDto);
     }
-
-//    /**
-//     * Проверка закрытия закрытой продажи
-//     */
-//    @Test
-//    @Transactional
-//    void closeClosedSale() {
-//        SaleDto openSaleDto = saleClient.createSale(SalesCreationDtoTest.getValidInstance());
-//        long closedSaleId = openSaleDto.getSaleId();
-//        SaleDto closedSaleDto = saleClient.closeSale(closedSaleId);
-//        SaleDto actualSaleDto = saleClient.cancelSale(SalesCanceledDtoTest.getValidInstance(), closedSaleId);
-//        System.out.println(actualSaleDto);
-//    }
 
     private void log(String nameTest, Object expected, Object actual) {
         log.debug(System.lineSeparator() +

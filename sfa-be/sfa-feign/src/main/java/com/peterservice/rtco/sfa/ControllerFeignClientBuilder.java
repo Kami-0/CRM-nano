@@ -24,7 +24,10 @@ public class ControllerFeignClientBuilder {
         return createClient(DictionaryApiFeign.class);
     }
 
-    private final SalesApiFeign saleClient = createClient(SalesApiFeign.class);
+    @Bean
+    public SalesApiFeign saleClient() {
+        return createClient(SalesApiFeign.class);
+    }
 
     private <T> T createClient(Class<T> type) {
         return Feign.builder()
