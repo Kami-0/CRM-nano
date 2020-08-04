@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping(value = ["/sales"])
-class SalesController(
+class SaleCompositeController(
         @Autowired
         private val salesCompositeService: SalesCompositeService
 ) {

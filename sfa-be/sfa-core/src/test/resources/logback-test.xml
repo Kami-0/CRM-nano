@@ -9,8 +9,17 @@
         </encoder>
     </appender>
 
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>windows-1251</charset>
+            <pattern>%d{"yyyy-MM-dd'T'HH:mm:ss,SSS"} [%level]%msg%n</pattern>
+        </encoder>
+    </appender>
+
     <root level="DEBUG">
         <appender-ref ref="FILE"/>
     </root>
-
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
 </configuration>

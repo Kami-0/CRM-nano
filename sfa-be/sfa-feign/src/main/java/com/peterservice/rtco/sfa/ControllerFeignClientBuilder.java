@@ -8,18 +8,19 @@ import feign.slf4j.Slf4jLogger;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Getter
 @Configuration
-@ComponentScan
+@PropertySource("")
 public class ControllerFeignClientBuilder {
-    private String uri;
+
+    @Value("${server.uri}")
+    private final String uri = "http://localhost:8080";
 
     @Bean
-    public DictionaryApiFeign dictionaryClient(@Value("${server.uri}") String uri) {
-        this.uri = uri;
+    public DictionaryApiFeign dictionaryClient() {
         return createClient(DictionaryApiFeign.class);
     }
 

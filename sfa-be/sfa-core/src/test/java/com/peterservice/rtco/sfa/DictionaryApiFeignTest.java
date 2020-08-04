@@ -4,14 +4,17 @@ import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 import java.util.Objects;
 
 @Slf4j
-@Configuration
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT, properties = "application.properties")
 class DictionaryApiFeignTest {
     private static final long OPEN_STATUS_ID = 1;
 
@@ -43,14 +46,14 @@ class DictionaryApiFeignTest {
      */
     @Test
     void getSaleStatusById() throws Exception {
-        SaleStatusDto saleStatusById = dictionaryClient.getSaleStatusById(OPEN_STATUS_ID);
-        SaleStatusDto saleStatusDto = SaleStatusDto.builder()
+        SaleStatusDto saleStatusByIdActual = dictionaryClient.getSaleStatusById(OPEN_STATUS_ID);
+        SaleStatusDto saleStatusDtoExpected = SaleStatusDto.builder()
                 .sstatId(OPEN_STATUS_ID)
                 .keyName("OPEN")
                 .name("open")
                 .isActiveYn(true)
                 .build();
-        Assertions.assertEquals(saleStatusById, saleStatusDto);
-        log.debug("{} ? {}", saleStatusById, saleStatusDto);
+        Assertions.assertEquals(saleStatusDtoExpected, saleStatusByIdActual);
+        log.debug("{} ? {}", saleStatusDtoExpected, saleStatusByIdActual);
     }
 }

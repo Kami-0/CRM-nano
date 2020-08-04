@@ -32,6 +32,7 @@ public class DictionaryController implements DictionaryApi {
     @Override
     @GetMapping(value = "/sale/statuses/{id}")
     public SaleStatusDto getSaleStatusById(@PathVariable long id) {
-        return dictionaryService.getSaleStatusById(id);
+        SaleStatusDto saleStatusDto = dictionaryService.getSaleStatusById(id);
+        return saleStatusDto;
     }
 }
