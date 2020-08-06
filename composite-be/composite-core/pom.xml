@@ -49,7 +49,6 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
-
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -57,7 +56,6 @@
                             <goal>compile</goal>
                         </goals>
                     </execution>
-
                     <execution>
                         <id>test-compile</id>
                         <goals>
@@ -66,7 +64,21 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>com.peterservice.rtco.crm.nano.composite.ApplicationKotlin</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
 </project>
