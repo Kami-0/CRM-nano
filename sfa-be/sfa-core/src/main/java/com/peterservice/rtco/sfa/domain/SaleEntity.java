@@ -1,39 +1,41 @@
 package com.peterservice.rtco.sfa.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 /**
  * @author Daniil.Makarov
  */
 @Entity
-@Table(name = "sale_status")
+@Table(name = "sale")
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@ToString
 public class SaleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sstat_id")
-    private long sstatId;
+    @Column(name = "sale_id")
+    private Long saleId;
 
-    @Column(name = "key_name", nullable = false)
-    private String keyName;
+    @Column(name = "sale_start_date")
+    private Instant saleStartDate;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "sale_end_date")
+    private Instant saleEndDate;
 
-    @Column(name = "is_active_yn", nullable = false)
-    private boolean isActiveYn;
+    @Column(name = "cust_cust_id")
+    private Long custCustId;
 
-    @Override
-    public String toString() {
-        return String.format(
-                "SaleStatus[sstatId=%d, keyName='%s', name='%s', isActiveYn='%b']",
-                sstatId, keyName, name, isActiveYn);
-    }
+    @ManyToOne
+    @JoinColumn(name = "sstat_sstat_id")
+    private SaleStatusEntity sstatSstatId;
+
+    @Column(name = "cancel_reason")
+    private String cancelReason;
+
+    @Column(name = "cntr_cntr_id")
+    private Long cntrCntrId;
 }

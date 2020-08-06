@@ -1,6 +1,6 @@
-package com.peterservice.rtco.sfa.api.commons.exceptions;
+package com.peterservice.rtco.sfa.api.common.exceptions;
 
-import com.peterservice.rtco.sfa.api.commons.types.EntityType;
+import com.peterservice.rtco.sfa.api.common.types.EntityType;
 import lombok.Getter;
 
 @Getter

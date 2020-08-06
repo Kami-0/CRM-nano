@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2" author="Daniil.Makarov">
+
+        <createTable tableName="sale">
+            <column name="sale_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="sale_start_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sale_end_date" type="date">
+                <constraints nullable="true"/>
+            </column>
+            <column name="cust_cust_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sstat_sstat_id" type="bigint">
+                <constraints nullable="false"
+                             foreignKeyName="fk_status"
+                             references="sale_status(sstat_id)"/>
+            </column>
+            <column name="cancel_reason" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="cntr_cntr_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="sale">
+            <column name="sale_start_date">2020-07-21</column>
+            <column name="sale_end_date">2020-07-28</column>
+            <column name="cust_cust_id">1</column>
+            <column name="sstat_sstat_id">1</column>
+            <column name="cancel_reason">Просто ;)</column>
+            <column name="cntr_cntr_id">1</column>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

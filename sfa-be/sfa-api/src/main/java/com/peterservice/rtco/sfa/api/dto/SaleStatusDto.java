@@ -1,8 +1,9 @@
 package com.peterservice.rtco.sfa.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Daniil.Makarov
@@ -10,16 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@ToString
+@Builder
+@EqualsAndHashCode
 public class SaleStatusDto {
-    private long sstatId;
+    @NotNull
+    private Long sstatId;
+    @NotBlank
     private String keyName;
+    @NotBlank
     private String name;
-    private boolean isActiveYn;
-
-    @Override
-    public String toString() {
-        return String.format(
-                "SaleStatusDto[sstatId=%d, keyName='%s', name='%s', isActiveYn='%b']",
-                sstatId, keyName, name, isActiveYn);
-    }
+    @NotNull
+    private Boolean isActiveYn;
 }
