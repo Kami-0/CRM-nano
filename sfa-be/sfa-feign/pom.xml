@@ -32,13 +32,15 @@
             <artifactId>feign-core</artifactId>
             <version>${feign-core.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-slf4j</artifactId>
             <version>${feign-slf4j.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>com.netflix.feign</groupId>
+            <groupId>io.github.openfeign</groupId>
             <artifactId>feign-gson</artifactId>
             <version>${feign-gson.version}</version>
         </dependency>

@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
+        <version>2.2.6.RELEASE</version>
     </parent>
 
     <modules>
@@ -21,78 +21,20 @@
         <module>composite-be</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>5.0.7.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.2.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-core</artifactId>
-            <version>11.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-jackson</artifactId>
-            <version>11.0</version>
-        </dependency>
-    </dependencies>
-
     <properties>
         <lombok.version>1.18.4</lombok.version>
         <liquibase-core.version>3.8.8</liquibase-core.version>
-        <h2.version>1.4.200</h2.version>
+<!--        <h2.version>1.4.200</h2.version>-->
         <junit.version>4.12</junit.version>
         <junit-jupiter-api.version>5.5.2</junit-jupiter-api.version>
         <log4j-to-slf4j.version>2.12.1</log4j-to-slf4j.version>
         <gson.version>2.8.6</gson.version>
-        <feign-gson.version>8.18.0</feign-gson.version>
+        <feign-gson.version>11.0</feign-gson.version>
         <feign-slf4j.version>11.0</feign-slf4j.version>
         <feign-core.version>11.0</feign-core.version>
+        <feign-jackson.version>11.0</feign-jackson.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <spring-boot-starter-data-jpa.version>2.2.8.RELEASE</spring-boot-starter-data-jpa.version>
     </properties>
 </project>
