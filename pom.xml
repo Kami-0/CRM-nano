@@ -24,7 +24,6 @@
     <properties>
         <lombok.version>1.18.4</lombok.version>
         <liquibase-core.version>3.8.8</liquibase-core.version>
-<!--        <h2.version>1.4.200</h2.version>-->
         <junit.version>4.12</junit.version>
         <junit-jupiter-api.version>5.5.2</junit-jupiter-api.version>
         <log4j-to-slf4j.version>2.12.1</log4j-to-slf4j.version>
