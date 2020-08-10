@@ -15,6 +15,7 @@
     <modules>
         <module>composite-api</module>
         <module>composite-core</module>
+        <module>composite-feign</module>
     </modules>
 
     <dependencies>

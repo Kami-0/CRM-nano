@@ -16,9 +16,11 @@
     </parent>
 
     <modules>
+        <module>commons</module>
         <module>sfa-be</module>
         <module>cam-be</module>
         <module>composite-be</module>
+        <module>commons/commons-feign</module>
     </modules>
 
     <properties>

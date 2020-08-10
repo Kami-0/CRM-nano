@@ -1,6 +1,7 @@
 package com.peterservice.rtco.sfa;
 
 import com.peterservice.rtco.sfa.api.dto.SaleDto;
+import com.peterservice.rtco.sfa.feign.SalesApiFeign;
 import com.peterservice.rtco.sfa.model.SaleDtoTest;
 import com.peterservice.rtco.sfa.model.SalesCanceledDtoTest;
 import com.peterservice.rtco.sfa.model.SalesCreationDtoTest;

@@ -1,6 +1,7 @@
 package com.peterservice.rtco.sfa;
 
 import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
+import com.peterservice.rtco.sfa.feign.DictionaryApiFeign;
 import com.peterservice.rtco.sfa.model.SaleStatusDtoTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;

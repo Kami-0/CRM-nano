@@ -1,4 +1,4 @@
-package com.peterservice.rtco.sfa;
+package com.peterservice.rtco.sfa.feign;
 
 import com.peterservice.rtco.sfa.api.SalesApi;
 import com.peterservice.rtco.sfa.api.dto.SaleDto;
