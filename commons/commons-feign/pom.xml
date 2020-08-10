@@ -9,10 +9,9 @@
     <packaging>jar</packaging>
 
     <parent>
-        <artifactId>CRMnano</artifactId>
+        <artifactId>commons</artifactId>
         <groupId>com.peterservice.rtco.crm.nano</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <dependencies>

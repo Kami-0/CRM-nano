@@ -1,4 +1,4 @@
-package com.peterservice.rtco.crm.nano.composite.controller
+package com.peterservice.rtco.crm.nano.composite.web.rest
 
 
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SaleStatusCompositeDto

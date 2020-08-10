@@ -1,4 +1,4 @@
-package com.peterservice.rtco.sfa.controller;
+package com.peterservice.rtco.sfa.web.rest;
 
 import com.peterservice.rtco.sfa.api.DictionaryApi;
 import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
