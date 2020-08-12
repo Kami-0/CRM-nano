@@ -1,7 +1,7 @@
 package com.peterservice.rtco.crm.nano.composite.service.extensions
 
 import com.peterservice.rtco.crm.nano.cam.dto.Customer
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerDto
 
 fun Customer.toCustomerDtoComposite(): CustomerDto = CustomerDto(
         id = this.id,

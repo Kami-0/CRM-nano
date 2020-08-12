@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-class SalesApiFeignTest {
+class SaleCompositeApiFeignTest {
 
     private void log(String nameTest, Object expected, Object actual) {
         log.debug(System.lineSeparator() +

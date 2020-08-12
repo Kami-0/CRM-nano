@@ -1,5 +1,6 @@
 package com.peterservice.rtco.crm.nano.composite.web.rest
 
+import com.peterservice.rtco.crm.nano.composite.api.SaleCompositeApi
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SaleCompositeDto
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SalesCancellationCompositeDto
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SalesCompositeCreationDto
@@ -19,24 +20,22 @@ import org.springframework.web.bind.annotation.RestController
 class SaleCompositeController(
         @Autowired
         private val salesCompositeService: SalesCompositeService
-) {
+) : SaleCompositeApi {
     @GetMapping(value = ["/{id}"])
-    fun getSaleById(@PathVariable id: Long): SaleCompositeDto = salesCompositeService.getSaleById(id)
-
+    override fun getSaleById(@PathVariable id: Long): SaleCompositeDto = salesCompositeService.getSaleById(id)
 
     @PostMapping(value = ["/create"])
-    fun createSale(@RequestBody salesCompositeCreationDto: SalesCompositeCreationDto): SaleCompositeDto =
+    override fun createSale(@RequestBody salesCompositeCreationDto: SalesCompositeCreationDto): SaleCompositeDto =
             salesCompositeService.createSale(salesCompositeCreationDto)
 
     @PutMapping(value = ["/{id}/cancel"])
-    fun cancelSale(@RequestBody salesCancellationCompositeDto: SalesCancellationCompositeDto,
-                   @PathVariable id: Long): SaleCompositeDto =
+    override fun cancelSale(@RequestBody salesCancellationCompositeDto: SalesCancellationCompositeDto,
+                            @PathVariable id: Long): SaleCompositeDto =
             salesCompositeService.cancelSale(salesCancellationCompositeDto, id)
 
     @PutMapping(value = ["/{id}/close"])
-    fun closeSale(@PathVariable id: Long): SaleCompositeDto = salesCompositeService.closeSale(id)
+    override fun closeSale(@PathVariable id: Long): SaleCompositeDto = salesCompositeService.closeSale(id)
 
     @DeleteMapping(value = ["/{id}/delete"])
-    fun deleteSale(@PathVariable id: Long) = salesCompositeService.deleteSale(id)
-
+    override fun deleteSale(@PathVariable id: Long) = salesCompositeService.deleteSale(id)
 }

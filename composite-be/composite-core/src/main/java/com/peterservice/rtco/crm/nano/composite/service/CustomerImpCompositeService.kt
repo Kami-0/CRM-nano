@@ -1,7 +1,7 @@
 package com.peterservice.rtco.crm.nano.composite.service
 
 import com.peterservice.rtco.crm.nano.cam.CustomerApi
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerDto
 import com.peterservice.rtco.crm.nano.composite.service.extensions.toCustomerDto
 import com.peterservice.rtco.crm.nano.composite.service.extensions.toCustomerDtoComposite
 import org.springframework.beans.factory.annotation.Autowired

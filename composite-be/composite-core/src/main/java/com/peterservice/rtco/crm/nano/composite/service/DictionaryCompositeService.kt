@@ -1,8 +1,8 @@
 package com.peterservice.rtco.crm.nano.composite.service
 
-import com.peterservice.rtco.crm.nano.composite.dto.BankDto
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerStatusDto
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerTypeDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.BankDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerStatusDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerTypeDto
 
 interface DictionaryCompositeService {
 

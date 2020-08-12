@@ -22,5 +22,4 @@ public interface SalesApi {
     SaleDto closeSale(@Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) long id);
 
     void deleteSale(@Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) long id);
-
 }

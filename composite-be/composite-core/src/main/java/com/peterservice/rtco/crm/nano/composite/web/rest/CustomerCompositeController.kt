@@ -1,6 +1,6 @@
 package com.peterservice.rtco.crm.nano.composite.web.rest
 
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerDto
 import com.peterservice.rtco.crm.nano.composite.service.CustomerCompositeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.DeleteMapping

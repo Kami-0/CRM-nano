@@ -1,6 +1,6 @@
 package com.peterservice.rtco.crm.nano.composite.service
 
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerDto
 
 interface CustomerCompositeService {
 

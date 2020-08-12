@@ -1,10 +1,11 @@
 package com.peterservice.rtco.crm.nano.composite.web.rest
 
 
+import com.peterservice.rtco.crm.nano.composite.api.DictionaryCompositeApi
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.BankDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerStatusDto
+import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerTypeDto
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SaleStatusCompositeDto
-import com.peterservice.rtco.crm.nano.composite.dto.BankDto
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerStatusDto
-import com.peterservice.rtco.crm.nano.composite.dto.CustomerTypeDto
 import com.peterservice.rtco.crm.nano.composite.service.DictionaryCompositeService
 import com.peterservice.rtco.crm.nano.composite.service.DictionarySfaCompositeService
 import org.springframework.beans.factory.annotation.Autowired
@@ -20,41 +21,40 @@ class DictionaryCompositeController(
         private val dictionaryService: DictionaryCompositeService,
         @Autowired
         private val dictionaryCompositeService: DictionarySfaCompositeService
-) {
+) : DictionaryCompositeApi {
     @GetMapping(value = ["/sale/statuses"])
-    fun getAllSaleStatuses(): List<SaleStatusCompositeDto>? = dictionaryCompositeService.getAllSaleStatuses()
+    override fun getAllSaleStatuses(): List<SaleStatusCompositeDto>? = dictionaryCompositeService.getAllSaleStatuses()
 
     @GetMapping(value = ["/sale/statuses/{id}"])
-    fun getSaleStatusById(@PathVariable id: Long): SaleStatusCompositeDto = dictionaryCompositeService.getSaleStatusById(id)
+    override fun getSaleStatusById(@PathVariable id: Long): SaleStatusCompositeDto = dictionaryCompositeService.getSaleStatusById(id)
 
     @GetMapping("/banks")
-    fun getAllBanks(): List<BankDto> {
+    override fun getAllBanks(): List<BankDto> {
         return dictionaryService.getAllBanks()
     }
 
     @GetMapping("/banks/{id}")
-    fun getBankById(@PathVariable(name = "id") id: Long): BankDto {
+    override fun getBankById(@PathVariable(name = "id") id: Long): BankDto {
         return dictionaryService.getBankById(id)
     }
 
     @GetMapping("/types")
-    fun getAllCustomersType(): List<CustomerTypeDto> {
+    override fun getAllCustomersType(): List<CustomerTypeDto> {
         return dictionaryService.getAllTypes()
     }
 
     @GetMapping("/types/{id}")
-    fun getTypeById(@PathVariable(name = "id") id: Long): CustomerTypeDto {
+    override fun getTypeById(@PathVariable(name = "id") id: Long): CustomerTypeDto {
         return dictionaryService.getTypeById(id)
     }
 
     @GetMapping("/statuses")
-    fun getAllCustomersStatus(): List<CustomerStatusDto> {
+    override fun getAllCustomersStatus(): List<CustomerStatusDto> {
         return dictionaryService.getAllStatuses()
     }
 
     @GetMapping("/statuses/{id}")
-    fun getStatusById(@PathVariable(name = "id") id: Long): CustomerStatusDto {
+    override fun getStatusById(@PathVariable(name = "id") id: Long): CustomerStatusDto {
         return dictionaryService.getStatusById(id)
     }
-
 }

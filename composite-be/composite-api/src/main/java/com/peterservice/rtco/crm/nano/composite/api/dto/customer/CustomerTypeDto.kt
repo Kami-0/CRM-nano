@@ -1,4 +1,4 @@
-package com.peterservice.rtco.crm.nano.composite.dto
+package com.peterservice.rtco.crm.nano.composite.api.dto.customer
 
 data class CustomerTypeDto (
     val typeId : Long,
