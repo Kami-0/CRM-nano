@@ -11,8 +11,6 @@ import feign.slf4j.Slf4jLogger;
  */
 public final class FeignClientBuilder {
     public static <T> T createClient(Class<T> type, String uri) {
-        System.out.println(uri);
-        System.out.println(type);
         return Feign.builder()
                 .logger(new Slf4jLogger())
                 .logLevel(Logger.Level.FULL)

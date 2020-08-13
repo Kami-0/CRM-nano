@@ -1,6 +1,7 @@
 package com.peterservice.rtco.crm.nano.composite
 
-import com.peterservice.rtco.crm.nano.composite.feign.DictionaryCompositeApiFeign
+import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SaleCompositeDto
+import com.peterservice.rtco.crm.nano.composite.feign.SaleCompositeApiFeign
 import org.junit.Test
 import org.junit.jupiter.api.Assertions
 import org.junit.runner.RunWith
@@ -13,14 +14,17 @@ import org.springframework.test.context.junit4.SpringRunner
  */
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-class DictionaryCompositeApiFeignTest {
+class SaleCompositeApiFeignTest {
 
     @Autowired
-    lateinit var dictionaryCompositeClient: DictionaryCompositeApiFeign
+    lateinit var saleCompositeClient: SaleCompositeApiFeign
 
+    /**
+     * Проверка получения по id
+     */
     @Test
-    fun getAllSaleStatusesTest() {
-        val allSaleStatuses = dictionaryCompositeClient.getAllSaleStatuses()
-        Assertions.assertFalse(allSaleStatuses!!.isEmpty())
+    fun getById() {
+        val actualSaleDto: SaleCompositeDto = saleCompositeClient.getSaleById(1L)
+        Assertions.assertNotNull(actualSaleDto)
     }
 }
