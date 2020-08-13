@@ -6,6 +6,9 @@ import feign.gson.GsonDecoder;
 
 import java.time.Instant;
 
+/**
+ * @author Daniil.Makarov
+ */
 public class InstantGsonDecoder extends GsonDecoder {
     public InstantGsonDecoder() {
         super(new GsonBuilder()

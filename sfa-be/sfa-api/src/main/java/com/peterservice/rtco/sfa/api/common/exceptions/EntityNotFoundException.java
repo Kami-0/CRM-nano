@@ -3,6 +3,9 @@ package com.peterservice.rtco.sfa.api.common.exceptions;
 import com.peterservice.rtco.sfa.api.common.types.EntityType;
 import lombok.Getter;
 
+/**
+ * @author Daniil.Makarov
+ */
 @Getter
 public class EntityNotFoundException extends RuntimeException {
     private final EntityType entityType;

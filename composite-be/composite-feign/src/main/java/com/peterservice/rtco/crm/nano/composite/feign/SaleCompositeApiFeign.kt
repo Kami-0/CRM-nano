@@ -8,6 +8,9 @@ import feign.Headers
 import feign.Param
 import feign.RequestLine
 
+/**
+ * @author Daniil.Makarov
+ */
 interface SaleCompositeApiFeign : SaleCompositeApi {
 
     @RequestLine("GET /sales/{id}")

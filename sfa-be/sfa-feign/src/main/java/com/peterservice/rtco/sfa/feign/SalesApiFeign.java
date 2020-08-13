@@ -14,6 +14,9 @@ import javax.validation.constraints.Min;
 import static com.peterservice.rtco.sfa.api.constan.ApiConstants.ID_MIN;
 import static com.peterservice.rtco.sfa.api.constan.ApiConstants.MESSAGE_TO_NOT_VALID_ID;
 
+/**
+ * @author Daniil.Makarov
+ */
 public interface SalesApiFeign extends SalesApi {
     @RequestLine("GET /sales/{id}")
     SaleDto getSaleById(@Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) @Param("id") long id);

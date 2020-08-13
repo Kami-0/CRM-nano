@@ -2,6 +2,9 @@ package com.peterservice.rtco.sfa.model;
 
 import com.peterservice.rtco.sfa.api.dto.SaleStatusDto;
 
+/**
+ * @author Daniil.Makarov
+ */
 public final class SaleStatusDtoTest {
     private static final long OPEN_STATUS_ID = 1;
 

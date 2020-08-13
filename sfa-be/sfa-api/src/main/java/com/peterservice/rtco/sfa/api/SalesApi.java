@@ -10,6 +10,9 @@ import javax.validation.constraints.Min;
 import static com.peterservice.rtco.sfa.api.constan.ApiConstants.ID_MIN;
 import static com.peterservice.rtco.sfa.api.constan.ApiConstants.MESSAGE_TO_NOT_VALID_ID;
 
+/**
+ * @author Daniil.Makarov
+ */
 public interface SalesApi {
 
     SaleDto getSaleById(@Min(value = ID_MIN, message = MESSAGE_TO_NOT_VALID_ID) long id);

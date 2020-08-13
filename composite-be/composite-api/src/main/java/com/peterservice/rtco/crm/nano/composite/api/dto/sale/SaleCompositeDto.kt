@@ -2,6 +2,9 @@ package com.peterservice.rtco.crm.nano.composite.api.dto.sale
 
 import java.time.Instant
 
+/**
+ * @author Daniil.Makarov
+ */
 data class SaleCompositeDto(
         val saleId: Long?,
         val saleStartDate: Instant,

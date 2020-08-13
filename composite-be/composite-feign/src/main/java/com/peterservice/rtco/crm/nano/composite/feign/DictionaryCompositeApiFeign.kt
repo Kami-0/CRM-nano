@@ -8,6 +8,9 @@ import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SaleStatusComposite
 import feign.Param
 import feign.RequestLine
 
+/**
+ * @author Daniil.Makarov
+ */
 interface DictionaryCompositeApiFeign : DictionaryCompositeApi {
 
     @RequestLine("GET /dictionary/sale/statuses")

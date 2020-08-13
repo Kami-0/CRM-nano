@@ -5,6 +5,9 @@ import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerStatusD
 import com.peterservice.rtco.crm.nano.composite.api.dto.customer.CustomerTypeDto
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SaleStatusCompositeDto
 
+/**
+ * @author Daniil.Makarov
+ */
 interface DictionaryCompositeApi {
 
     fun getAllSaleStatuses(): List<SaleStatusCompositeDto>?

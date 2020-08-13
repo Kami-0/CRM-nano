@@ -14,6 +14,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author Daniil.Makarov
+ */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)

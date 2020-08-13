@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 
+/**
+ * @author Daniil.Makarov
+ */
 @Component
 public final class SaleDtoTest {
 

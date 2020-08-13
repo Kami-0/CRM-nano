@@ -3,6 +3,9 @@ package com.peterservice.rtco.sfa.model;
 import com.peterservice.rtco.sfa.api.dto.SalesCreationDto;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Daniil.Makarov
+ */
 @Component
 public final class SalesCreationDtoTest {
 

@@ -4,6 +4,9 @@ import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SaleCompositeDto
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SalesCancellationCompositeDto
 import com.peterservice.rtco.crm.nano.composite.api.dto.sale.SalesCompositeCreationDto
 
+/**
+ * @author Daniil.Makarov
+ */
 interface SaleCompositeApi {
 
     fun getSaleById(id: Long): SaleCompositeDto

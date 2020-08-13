@@ -1,5 +1,8 @@
 package com.peterservice.rtco.sfa.api.common.types;
 
+/**
+ * @author Daniil.Makarov
+ */
 public enum EntityType {
     SALE_STATUS("Статус продажи"),
     SALE("Статус продажи");
