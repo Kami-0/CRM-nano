@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ControllerFeignClients {
 
-    @Value("${server.uri}")
+    @Value("${sfa.server.uri}")
     private String uri;
 
     @Bean
